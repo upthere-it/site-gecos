@@ -67,3 +67,6 @@ logs/
 # Test/coverage
 /coverage
 *.lcov
+.open-next/
+.wrangler/
+wrangler.jsonc.bak

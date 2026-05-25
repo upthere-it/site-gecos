@@ -7,7 +7,6 @@ const intlMiddleware = createIntlMiddleware(routing);
 export default function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
-  // Admin auth guard — escludi login page e auth API
   if (pathname.startsWith("/admin")) {
     const isPublicAdminRoute =
       pathname === "/admin/login" || pathname === "/api/admin/auth";
@@ -26,7 +25,6 @@ export default function middleware(req: NextRequest) {
     return NextResponse.next();
   }
 
-  // next-intl per tutte le rotte pubbliche
   return intlMiddleware(req);
 }
 
