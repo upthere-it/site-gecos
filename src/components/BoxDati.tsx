@@ -28,6 +28,13 @@ export default function BoxDati({ stats }: BoxDatiProps) {
         const variant: "dark" | "light" = i === 1 ? "light" : "dark";
         return (
           <div
+              style={{
+                  border: "4px solid transparent",
+                  borderImageSource: "url(./Vector-light.svg)",
+                  borderImageSlice: "7 fill",
+                  borderImageWidth: "12px",
+                  borderImageRepeat: "stretch",
+              }}
             key={i}
             className={`${bgMap[variant]} flex flex-col items-center justify-center py-10 px-6 min-h-[130px]`}
           >

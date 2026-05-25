@@ -74,7 +74,7 @@ export default async function CertificazioniPage() {
                   {/* Card con foto certificato + overlay */}
                   <div className="relative overflow-hidden aspect-[368/280] bg-gray-100">
                     <Image
-                      src={`/assets/certs/cert-${n}.jpg`}
+                      src={`/assets/certs/cert-${n}.png`}
                       alt={`Certificazione ${title}`}
                       fill
                       className="object-cover"

@@ -87,9 +87,16 @@ export default async function HomePage() {
       <Header />
       <main>
         {/* ── Hero ── */}
-        <section className="relative min-h-[586px] md:min-h-[717px] flex flex-col items-center justify-start pt-10 md:pt-14 overflow-hidden bg-white">
+        <section
+            style={{
+                backgroundImage: "url('/assets/photos/hero-bg.jpg')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+            }}
+            className="relative min-h-[586px] md:min-h-[717px] flex flex-col items-center justify-start pt-10 md:pt-14 overflow-hidden bg-white">
           <div className="container-boxed text-center relative z-10 pb-6 md:pb-8">
-            <h1 className="text-[34px] md:text-5xl lg:text-[60px] font-bold text-primary leading-[1.05] max-w-4xl mx-auto tracking-tight">
+            <h1 className="container-boxed text-[34px] md:text-5xl lg:text-[60px] font-bold text-primary leading-[1.05]  mx-auto tracking-tight">
               {t("hero.title")}
             </h1>
             <p className="mt-4 md:mt-5 text-base md:text-lg text-primary/80 max-w-2xl mx-auto leading-relaxed">
@@ -116,7 +123,7 @@ export default async function HomePage() {
               alt="Alberi e verde urbano GE.CO.S."
               fill
               priority
-              className="object-cover object-top"
+              className="object-cover object-top hidden"
               sizes="100vw"
             />
           </div>
@@ -176,7 +183,7 @@ export default async function HomePage() {
             <div className="mt-8">
               <Link
                 href="/it/chi-siamo"
-                className="inline-block border border-primary text-primary px-6 py-3 text-xs md:text-sm font-bold uppercase tracking-[0.15em] hover:bg-primary hover:text-white transition-colors"
+                className="btn-outline px-8 py-4"
               >
                 {t("chiSiamo.cta")}
               </Link>
@@ -207,7 +214,7 @@ export default async function HomePage() {
                   className="relative overflow-hidden bg-gray-100 aspect-[395/395]"
                 >
                   <Image
-                    src={`/assets/certs/cert-${n}.jpg`}
+                    src={`/assets/certs/cert-${n}.png`}
                     alt={`Certificazione ${title}`}
                     fill
                     className="object-cover"
