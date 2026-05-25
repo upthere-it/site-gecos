@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Occhiello from "@/components/Occhiello";
 import SectionTitle from "@/components/SectionTitle";
 import CardServizi from "@/components/CardServizi";
 import BoxAiuto from "@/components/BoxAiuto";
@@ -46,42 +44,19 @@ export default async function ServiziPage() {
     <>
       <Header />
       <main>
-        {/* ── Hero ── */}
-        <section className="relative h-[469px] overflow-hidden">
-          <Image
-            src="/assets/photos/servizio-1.jpg"
-            alt="Servizi GE.CO.S."
-            fill
-            priority
-            className="object-cover"
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-primary/60" />
-          <div className="absolute inset-0 flex flex-col justify-end pb-12 container-boxed">
-            <Occhiello label={t("hero.occhiello")} className="mb-4" />
-            <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-              {t("hero.title")}{" "}
-              <span className="text-accent">{t("hero.titleAccent")}</span>
-            </h1>
-            <p className="mt-3 text-base text-white/80 max-w-2xl">
-              {t("hero.subtitle")}
-            </p>
-          </div>
-        </section>
-
         {/* ── Lista servizi ── */}
-        <section className="py-16 bg-white">
+        <section className="pt-16 pb-20 bg-white">
           <div className="container-boxed">
-            <div className="mb-6">
-              <h2 className="text-3xl md:text-4xl font-bold text-primary">
+            <div className="mb-10">
+              <h1 className="text-3xl md:text-[40px] font-bold text-primary leading-tight">
                 {t("title")}
-              </h2>
-              <p className="mt-2 text-base text-primary/80 max-w-3xl">
+              </h1>
+              <p className="mt-3 text-base text-primary/80 max-w-3xl">
                 {t("subtitle")}
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-2 gap-y-12">
               {serviziCards.map((card) => (
                 <CardServizi
                   key={card.n}
