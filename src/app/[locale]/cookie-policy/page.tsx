@@ -3,8 +3,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Cookie Policy | GE.CO.S. S.r.l.",
-  robots: { index: false },
+  title: "Cookie Policy",
+  description:
+    "Cookie policy di GE.CO.S. S.r.l. – informazioni sull'utilizzo dei cookie e gestione del consenso tramite CookieFirst.",
+  robots: "noindex,nofollow",
 };
 
 export default function CookiePolicyPage() {

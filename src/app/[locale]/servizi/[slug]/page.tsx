@@ -30,9 +30,27 @@ export async function generateMetadata({
   const index = SERVIZIO_SLUGS.indexOf(slug);
   if (index === -1) return { title: "Servizio" };
   const key = `servizio${index + 1}` as "servizio1";
+  const title = t(`${key}.title`);
+  const description = t(`${key}.subtitle`);
   return {
-    title: t(`${key}.title`),
-    description: t(`${key}.subtitle`),
+    title,
+    description,
+    robots: "index,follow",
+    alternates: {
+      canonical: `https://gecospomezia.it/it/servizi/${slug}`,
+    },
+    openGraph: {
+      title: `${title} | GE.CO.S. S.r.l.`,
+      description,
+      images: [
+        {
+          url: "/assets/photos/hero-bg.jpg",
+          width: 1440,
+          height: 717,
+          alt: `${title} – GE.CO.S. S.r.l.`,
+        },
+      ],
+    },
   };
 }
 

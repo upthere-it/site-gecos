@@ -3,8 +3,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | GE.CO.S. S.r.l.",
-  robots: { index: false },
+  title: "Privacy Policy",
+  description:
+    "Informativa sulla privacy di GE.CO.S. S.r.l. – trattamento dei dati personali ai sensi del GDPR UE 2016/679.",
+  robots: "noindex,nofollow",
 };
 
 export default function PrivacyPolicyPage() {

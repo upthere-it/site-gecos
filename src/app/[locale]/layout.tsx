@@ -42,6 +42,37 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "GE.CO.S. S.r.l.",
+  alternateName: "Gestione Costruzioni Servizi",
+  url: "https://gecospomezia.it",
+  logo: "https://gecospomezia.it/assets/logo-gecos.png",
+  image: "https://gecospomezia.it/assets/photos/hero-bg.jpg",
+  description:
+    "GE.CO.S. S.r.l. – Gestione e manutenzione del verde urbano e rurale a Pomezia (RM). Certificata ISO 9001, EMAS e UNI/PDR 125:2022.",
+  telephone: "+390691071421",
+  email: "info@gecospomezia.it",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Via Monte d'Oro n. 30",
+    postalCode: "00071",
+    addressLocality: "Pomezia",
+    addressRegion: "RM",
+    addressCountry: "IT",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 41.6727,
+    longitude: 12.5002,
+  },
+  sameAs: [
+    "https://www.instagram.com",
+    "https://www.facebook.com",
+  ],
+};
+
 export default async function LocaleLayout({
   children,
   params,
@@ -62,6 +93,10 @@ export default async function LocaleLayout({
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
           rel="stylesheet"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
         />
       </head>
       <body>

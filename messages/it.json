@@ -181,23 +181,57 @@
       "titleAccent": "e riconosciuta",
       "subtitle": "Le nostre certificazioni attestano il nostro impegno per la qualità, la sostenibilità e l'inclusività."
     },
+    "sezione": {
+      "title": "Le nostre certificazioni",
+      "subtitle": "Ogni certificazione rappresenta il nostro impegno concreto verso clienti, lavoratori e ambiente."
+    },
+    "apriAnteprima": "APRI ANTEPRIMA",
+    "scaricaPdf": "SCARICA PDF",
     "cert1": {
       "label": "QUALITÀ",
       "title": "UNI EN ISO 9001:2015",
       "text": "Il Sistema di Gestione per la Qualità di GE.CO.S. S.r.l. è certificato UNI EN ISO 9001:2015 per il campo di applicazione: Manutenzione di aree verdi.",
-      "body": "La certificazione ISO 9001 attesta che i nostri processi aziendali soddisfano i requisiti internazionali per la gestione della qualità, garantendo ai clienti servizi affidabili e conformi."
+      "body": "La certificazione ISO 9001 attesta che i nostri processi aziendali soddisfano i requisiti internazionali per la gestione della qualità, garantendo ai clienti servizi affidabili e conformi.",
+      "pdfUrl": "/assets/certs/cert-1.jpg",
+      "previewUrl": "/assets/certs/cert-1.jpg"
     },
     "cert2": {
       "label": "SOSTENIBILITÀ",
       "title": "EMAS",
       "text": "GE.CO.S. S.r.l. è registrata nel sistema comunitario di ecogestione e audit EMAS (Eco-Management and Audit Scheme).",
-      "body": "La certificazione EMAS dimostra il nostro impegno concreto verso la riduzione dell'impatto ambientale delle nostre attività, con obiettivi di miglioramento continuo documentati e verificati da terze parti."
+      "body": "La certificazione EMAS dimostra il nostro impegno concreto verso la riduzione dell'impatto ambientale delle nostre attività, con obiettivi di miglioramento continuo documentati e verificati da terze parti.",
+      "pdfUrl": "/assets/certs/cert-2.jpg",
+      "previewUrl": "/assets/certs/cert-2.jpg"
     },
     "cert3": {
       "label": "PARITÀ DI GENERE",
       "title": "UNI/PDR 125:2022",
       "text": "GE.CO.S. S.r.l. è certificata per la parità di genere secondo la prassi di riferimento UNI/PDR 125:2022.",
-      "body": "Questa certificazione riconosce il nostro impegno nella promozione di politiche aziendali volte alla parità di genere, all'equità retributiva e alla creazione di un ambiente di lavoro inclusivo."
+      "body": "Questa certificazione riconosce il nostro impegno nella promozione di politiche aziendali volte alla parità di genere, all'equità retributiva e alla creazione di un ambiente di lavoro inclusivo.",
+      "pdfUrl": "/assets/certs/cert-3.jpg",
+      "previewUrl": "/assets/certs/cert-3.jpg"
+    },
+    "attestati": {
+      "title": "Attestati",
+      "subtitle": "Ulteriori attestazioni di qualifica e conformità conseguite dal nostro personale e dalla nostra organizzazione.",
+      "att1": {
+        "label": "QUALITÀ",
+        "title": "UNI EN ISO 9001:2015",
+        "text": "Attestato di conformità per l'attività di Manutenzione di aree verdi.",
+        "body": "Documento di rinnovo annuale della certificazione di qualità, verificato da ente terzo accreditato."
+      },
+      "att2": {
+        "label": "SOSTENIBILITÀ",
+        "title": "EMAS",
+        "text": "Attestato di registrazione EMAS aggiornato all'ultimo ciclo di audit.",
+        "body": "Il documento attesta il superamento della verifica ambientale periodica e la conferma della registrazione nel registro europeo EMAS."
+      },
+      "att3": {
+        "label": "PARITÀ DI GENERE",
+        "title": "UNI/PDR 125:2022",
+        "text": "Attestato di conformità alla prassi di riferimento per la parità di genere.",
+        "body": "Il documento certifica il mantenimento dei requisiti e l'impegno continuativo nella promozione dell'equità aziendale."
+      }
     }
   },
   "faqs": {

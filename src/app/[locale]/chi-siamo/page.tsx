@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
-import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Occhiello from "@/components/Occhiello";
@@ -38,6 +37,24 @@ export default async function ChiSiamoPage() {
     { question: t("dropdown1Title"), answer: t("dropdown1Text") },
     { question: t("dropdown2Title"), answer: t("dropdown2Text") },
     { question: t("dropdown3Title"), answer: t("dropdown3Text") },
+  ];
+
+  const cards = [
+    {
+      number: t("card1Number"),
+      title: t("card1Title"),
+      text: t("card1Text"),
+    },
+    {
+      number: t("card2Number"),
+      title: t("card2Title"),
+      text: t("card2Text"),
+    },
+    {
+      number: t("card3Number"),
+      title: t("card3Title"),
+      text: t("card3Text"),
+    },
   ];
 
   return (
@@ -81,6 +98,7 @@ export default async function ChiSiamoPage() {
         {/* ── Contenuto principale ── */}
         <section className="py-16 bg-white">
           <div className="container-boxed">
+            {/* Sezione 1: Titolo + sottotitolo principale */}
             <h2 className="text-3xl md:text-4xl font-bold text-primary">
               {t("sezione1.title")}
             </h2>
@@ -88,6 +106,7 @@ export default async function ChiSiamoPage() {
               {t("sezione1.subtitle")}
             </p>
 
+            {/* Titolo + testo secondario */}
             <div className="mt-8">
               <h3 className="text-lg md:text-xl font-bold text-primary">
                 {t("sezione1.bodyTitle")}
@@ -97,12 +116,10 @@ export default async function ChiSiamoPage() {
               </p>
             </div>
 
-            {/* Stats */}
+            {/* BoxDati + Foto */}
             <div className="mt-8">
               <BoxDati stats={stats} />
             </div>
-
-            {/* Photo */}
             <div className="mt-6 relative w-full aspect-[1152/479] overflow-hidden bg-gray-100">
               <Image
                 src="/assets/photos/chi-siamo.jpg"
@@ -113,11 +130,46 @@ export default async function ChiSiamoPage() {
               />
             </div>
 
-            {/* Dropdown / Valori */}
+            {/* Sezione 2: Titolo + testo dopo la foto */}
             <div className="mt-12">
-              <h3 className="text-xl md:text-2xl font-bold text-primary mb-6">
-                {t("dropdownTitle")}
+              <h3 className="text-lg md:text-xl font-bold text-primary">
+                {t("sezione2.title")}
               </h3>
+              <p className="mt-2 text-sm md:text-base text-primary/80 max-w-3xl">
+                {t("sezione2.bodyText")}
+              </p>
+            </div>
+
+            {/* Card + numeri: 3 colonne su sfondo accent-light */}
+            <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-px bg-primary/10">
+              {cards.map((card) => (
+                <div
+                  key={card.number}
+                  className="bg-accent-light px-8 py-8"
+                >
+                  <div className="flex items-baseline gap-3 mb-4">
+                    <span className="text-[56px] font-bold text-primary leading-none">
+                      {card.number}
+                    </span>
+                    <span className="text-[13px] font-bold text-primary uppercase tracking-[0.15em] leading-snug">
+                      {card.title}
+                    </span>
+                  </div>
+                  <p className="text-[14px] text-primary/80 leading-relaxed">
+                    {card.text}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* Sezione Valori: titolo + dropdown */}
+            <div className="mt-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-2">
+                {t("dropdownTitle")}
+              </h2>
+              <p className="text-base text-primary/80 max-w-3xl mb-8">
+                {t("sezione1.subtitle")}
+              </p>
               <FaqAccordion items={dropdownItems} />
             </div>
           </div>
