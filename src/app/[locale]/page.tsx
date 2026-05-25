@@ -185,40 +185,40 @@ export default async function HomePage() {
         </section>
 
         {/* ── Box Certificazioni ── */}
-        <section className="py-16 bg-white border-t border-gray-100">
+        <section className="py-20 bg-white">
           <div className="container-boxed">
-            <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
               <SectionTitle
                 occhiello={t("certificazioni.occhiello")}
                 title={t("certificazioni.title")}
                 subtitle={t("certificazioni.subtitle")}
               />
-              <div className="flex-shrink-0">
-                <Link href="/it/certificazioni" className="btn-outline px-6 py-3">
+              <div className="flex-shrink-0 md:pb-2">
+                <Link href="/it/certificazioni" className="btn-outline px-6 py-3 text-sm">
                   {t("certificazioni.cta")}
                 </Link>
               </div>
             </div>
 
-            <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-2">
               {certCards.map(({ n, label, title }) => (
                 <div
                   key={n}
-                  className="relative overflow-hidden bg-gray-100"
-                  style={{ aspectRatio: "320 / 400" }}
+                  className="relative overflow-hidden bg-gray-100 aspect-[395/395]"
                 >
                   <Image
                     src={`/assets/certs/cert-${n}.jpg`}
                     alt={`Certificazione ${title}`}
                     fill
                     className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 320px"
+                    sizes="(max-width: 768px) 100vw, 395px"
                   />
-                  <div className="absolute inset-0 bg-primary/70 flex flex-col justify-end p-5">
-                    <span className="text-accent text-xs font-bold uppercase tracking-widest">
+                  <div className="absolute inset-0 bg-primary/70" />
+                  <div className="absolute inset-0 flex flex-col justify-end p-7">
+                    <span className="text-accent text-[11px] font-bold uppercase tracking-[0.15em]">
                       {label}
                     </span>
-                    <span className="text-white text-lg font-bold mt-1">
+                    <span className="text-white text-xl md:text-2xl font-bold mt-2 leading-tight">
                       {title}
                     </span>
                   </div>
@@ -229,7 +229,7 @@ export default async function HomePage() {
         </section>
 
         {/* ── Servizi ── */}
-        <section className="py-16 bg-white border-t border-gray-100">
+        <section className="py-20 bg-white">
           <div className="container-boxed">
             <SectionTitle
               occhiello={t("servizi.occhiello")}
@@ -237,7 +237,7 @@ export default async function HomePage() {
               subtitle={t("servizi.subtitle")}
             />
 
-            <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-x-2 gap-y-12">
               {serviziCards.map((card) => (
                 <CardServizi
                   key={card.n}
@@ -256,7 +256,7 @@ export default async function HomePage() {
               ))}
             </div>
 
-            <div className="mt-8 flex justify-center">
+            <div className="mt-12 flex justify-center">
               <Link href="/it/servizi" className="btn-outline px-8 py-4">
                 {t("servizi.cta")}
               </Link>

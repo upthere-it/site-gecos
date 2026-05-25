@@ -51,60 +51,58 @@ export default async function CertificazioniPage() {
     <>
       <Header />
       <main>
-        {/* ── Hero ── */}
-        <section className="relative h-[469px] overflow-hidden">
-          <Image
-            src="/assets/photos/chi-siamo.jpg"
-            alt="Certificazioni GE.CO.S."
-            fill
-            priority
-            className="object-cover"
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-primary/60" />
-          <div className="absolute inset-0 flex flex-col justify-end pb-12 container-boxed">
+        {/* ── Header sezione ── */}
+        <section className="pt-16 pb-10 bg-white">
+          <div className="container-boxed">
             <Occhiello label={t("hero.occhiello")} className="mb-4" />
-            <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+            <h1 className="text-3xl md:text-[40px] font-bold text-primary leading-tight">
               {t("hero.title")}{" "}
-              <span className="text-accent">{t("hero.titleAccent")}</span>
+              <span className="text-primary">{t("hero.titleAccent")}</span>
             </h1>
-            <p className="mt-3 text-base text-white/80 max-w-2xl">
+            <p className="mt-3 text-base text-primary/80 max-w-3xl">
               {t("hero.subtitle")}
             </p>
           </div>
         </section>
 
         {/* ── Certificazioni ── */}
-        <section className="py-16 bg-white">
-          <div className="container-boxed space-y-16">
-            {certs.map(({ n, label, title, text, body }) => (
-              <div
-                key={n}
-                className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start"
-              >
-                <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
-                  <Image
-                    src={`/assets/certs/cert-${n}.jpg`}
-                    alt={`Certificazione ${title}`}
-                    fill
-                    className="object-contain p-4"
-                    sizes="(max-width: 768px) 100vw, 576px"
-                  />
+        <section className="pb-20 bg-white">
+          <div className="container-boxed">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {certs.map(({ n, label, title, text, body }) => (
+                <div key={n} className="flex flex-col">
+                  {/* Card con foto certificato + overlay */}
+                  <div className="relative overflow-hidden aspect-[368/280] bg-gray-100">
+                    <Image
+                      src={`/assets/certs/cert-${n}.jpg`}
+                      alt={`Certificazione ${title}`}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 368px"
+                    />
+                    <div className="absolute inset-0 bg-primary/70" />
+                    <div className="absolute inset-0 flex flex-col justify-end p-6">
+                      <span className="text-accent text-[11px] font-bold uppercase tracking-[0.15em]">
+                        {label}
+                      </span>
+                      <span className="text-white text-xl md:text-2xl font-bold mt-2 leading-tight">
+                        {title}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Testo descrittivo */}
+                  <div className="pt-6 pr-2 space-y-4">
+                    <p className="text-[14px] text-primary/80 leading-relaxed">
+                      {text}
+                    </p>
+                    <p className="text-[14px] text-primary/80 leading-relaxed">
+                      {body}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <Occhiello label={label} className="mb-4" />
-                  <h2 className="text-2xl md:text-3xl font-bold text-primary mt-2">
-                    {title}
-                  </h2>
-                  <p className="mt-4 text-sm md:text-base text-primary/80 leading-relaxed">
-                    {text}
-                  </p>
-                  <p className="mt-4 text-sm text-primary/70 leading-relaxed">
-                    {body}
-                  </p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </section>
 

@@ -18,21 +18,32 @@ export default function FaqAccordion({ items, limit }: FaqAccordionProps) {
   const displayed = limit ? items.slice(0, limit) : items;
 
   return (
-    <div className="space-y-0">
+    <div className="flex flex-col gap-3">
       {displayed.map((item, i) => {
         const isOpen = openIndex === i;
         return (
-          <div key={i} className="border border-gray-200">
+          <div
+            key={i}
+            className={`border transition-colors ${
+              isOpen
+                ? "bg-white border-gray-200"
+                : "bg-gray-50 border-gray-200"
+            }`}
+          >
             <button
-              className="w-full flex items-center justify-between px-6 py-5 text-left"
+              type="button"
+              className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left"
               onClick={() => setOpenIndex(isOpen ? null : i)}
               aria-expanded={isOpen}
             >
-              <span className="text-base font-medium text-primary pr-4">
+              <span className="text-[16px] md:text-[17px] font-medium text-primary leading-snug">
                 {item.question}
               </span>
-              <span className="text-xl text-primary flex-shrink-0 leading-none">
-                {isOpen ? "−" : "+"}
+              <span
+                className="material-symbols-outlined text-primary flex-shrink-0 text-[24px] leading-none select-none"
+                aria-hidden="true"
+              >
+                {isOpen ? "remove" : "add"}
               </span>
             </button>
             <AnimatePresence initial={false}>
@@ -45,7 +56,7 @@ export default function FaqAccordion({ items, limit }: FaqAccordionProps) {
                   transition={{ duration: 0.25, ease: "easeInOut" }}
                   className="overflow-hidden"
                 >
-                  <p className="px-6 pb-6 text-sm md:text-base text-primary/80 leading-relaxed">
+                  <p className="px-6 pb-6 text-[15px] md:text-base text-primary/80 leading-relaxed">
                     {item.answer}
                   </p>
                 </motion.div>

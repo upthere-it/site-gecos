@@ -79,9 +79,10 @@ export default async function ServizioPage({
             className="object-cover"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-primary/60 flex flex-col justify-end pb-10 container-boxed">
+          <div className="absolute inset-0 bg-primary/60" />
+          <div className="absolute inset-0 flex flex-col justify-end pb-10 container-boxed">
             <Occhiello label={t(`${key}.label`)} className="mb-4" />
-            <h1 className="text-3xl md:text-4xl font-bold text-white">
+            <h1 className="text-3xl md:text-[40px] font-bold text-white leading-tight">
               {t(`${key}.title`)}
             </h1>
           </div>
@@ -91,25 +92,25 @@ export default async function ServizioPage({
         <section className="py-16 bg-white">
           <div className="container-boxed">
             <div className="max-w-3xl">
-              <h2 className="text-xl md:text-2xl font-bold text-primary mb-2">
+              <h2 className="text-xl md:text-2xl font-bold text-primary">
                 {t(`${key}.subtitle`)}
               </h2>
-              <p className="text-base text-primary/80 leading-relaxed mt-4">
+              <p className="text-[15px] font-bold text-primary leading-relaxed mt-6">
                 {t(`${key}.detail1Title`)}
               </p>
-              <p className="text-sm text-primary/70 leading-relaxed mt-2">
+              <p className="text-[14px] text-primary/80 leading-relaxed mt-2">
                 {t(`${key}.detail1Text`)}
               </p>
-              <p className="text-base text-primary/80 leading-relaxed mt-6">
+              <p className="text-[15px] font-bold text-primary leading-relaxed mt-6">
                 {t(`${key}.detail2Title`)}
               </p>
-              <p className="text-sm text-primary/70 leading-relaxed mt-2">
+              <p className="text-[14px] text-primary/80 leading-relaxed mt-2">
                 {t(`${key}.detail2Text`)}
               </p>
             </div>
 
             {/* Photo */}
-            <div className="mt-10 relative w-full aspect-[16/9] overflow-hidden bg-gray-100">
+            <div className="mt-12 relative w-full aspect-[16/9] overflow-hidden bg-gray-100">
               <Image
                 src={`/assets/photos/servizio-hero-${n}.jpg`}
                 alt={t(`${key}.title`)}
@@ -121,16 +122,16 @@ export default async function ServizioPage({
 
             {/* Altri servizi */}
             {altriServizi.length > 0 && (
-              <div className="mt-12">
-                <h3 className="text-xl font-bold text-primary mb-6">
+              <div className="mt-16">
+                <h3 className="text-2xl md:text-3xl font-bold text-primary mb-8">
                   {t("scopriDiPiu")}
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                   {altriServizi.map(({ x, label, title, href }) => (
                     <Link
                       key={x}
                       href={href}
-                      className="relative h-[315px] overflow-hidden block group"
+                      className="relative aspect-[571/315] overflow-hidden block group"
                     >
                       <Image
                         src={`/assets/photos/servizio-${x}.jpg`}
@@ -140,11 +141,11 @@ export default async function ServizioPage({
                         sizes="(max-width: 768px) 100vw, 571px"
                       />
                       <div className="absolute inset-0 bg-primary/60 group-hover:bg-primary/70 transition-colors" />
-                      <div className="absolute inset-0 flex flex-col justify-end p-6">
-                        <span className="text-accent text-xs font-bold uppercase tracking-widest">
+                      <div className="absolute inset-0 flex flex-col justify-end p-[30px]">
+                        <span className="text-accent text-[11px] font-bold uppercase tracking-[0.15em]">
                           {label}
                         </span>
-                        <span className="text-white text-xl font-bold mt-1">
+                        <span className="text-white text-2xl md:text-[28px] font-bold mt-2 leading-tight">
                           {title}
                         </span>
                       </div>

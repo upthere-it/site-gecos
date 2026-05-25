@@ -28,6 +28,9 @@ export default function ContactForm() {
 
   const options = (t.raw("bisognoOptions") as string[]) ?? [];
 
+  const inputClass =
+    "w-full border border-gray-200 bg-white px-4 py-[14px] text-[15px] text-primary placeholder:text-gray-400 outline-none focus:border-primary transition-colors";
+
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -37,7 +40,7 @@ export default function ContactForm() {
           required
           value={formData.nome}
           onChange={(e) => setFormData((p) => ({ ...p, nome: e.target.value }))}
-          className="border border-gray-300 px-4 py-3 text-sm text-primary placeholder:text-gray-400 outline-none focus:border-primary"
+          className={inputClass}
         />
         <input
           type="email"
@@ -47,7 +50,7 @@ export default function ContactForm() {
           onChange={(e) =>
             setFormData((p) => ({ ...p, email: e.target.value }))
           }
-          className="border border-gray-300 px-4 py-3 text-sm text-primary placeholder:text-gray-400 outline-none focus:border-primary"
+          className={inputClass}
         />
         <input
           type="tel"
@@ -57,7 +60,7 @@ export default function ContactForm() {
           onChange={(e) =>
             setFormData((p) => ({ ...p, telefono: e.target.value }))
           }
-          className="border border-gray-300 px-4 py-3 text-sm text-primary placeholder:text-gray-400 outline-none focus:border-primary"
+          className={inputClass}
         />
         <div className="relative">
           <select
@@ -65,17 +68,24 @@ export default function ContactForm() {
             onChange={(e) =>
               setFormData((p) => ({ ...p, bisogno: e.target.value }))
             }
-            className="w-full border border-gray-300 px-4 py-3 text-sm text-primary placeholder:text-gray-400 outline-none focus:border-primary appearance-none bg-white"
+            className={`${inputClass} appearance-none pr-10 ${
+              formData.bisogno === "" ? "text-gray-400" : "text-primary"
+            }`}
           >
-            <option value="">{t("bisogno")}</option>
+            <option value="" disabled>
+              {t("bisogno")}
+            </option>
             {options.map((opt) => (
-              <option key={opt} value={opt}>
+              <option key={opt} value={opt} className="text-primary">
                 {opt}
               </option>
             ))}
           </select>
-          <span className="absolute right-3 top-1/2 -translate-y-1/2 text-primary pointer-events-none">
-            ∨
+          <span
+            className="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-primary pointer-events-none text-[22px] leading-none"
+            aria-hidden="true"
+          >
+            expand_more
           </span>
         </div>
       </div>
@@ -86,9 +96,9 @@ export default function ContactForm() {
         onChange={(e) =>
           setFormData((p) => ({ ...p, messaggio: e.target.value }))
         }
-        className="w-full border border-gray-300 px-4 py-3 text-sm text-primary placeholder:text-gray-400 outline-none focus:border-primary resize-none"
+        className={`${inputClass} resize-none`}
       />
-      <label className="flex items-start gap-3 cursor-pointer">
+      <label className="flex items-start gap-3 cursor-pointer pt-2">
         <input
           type="checkbox"
           required
@@ -96,17 +106,21 @@ export default function ContactForm() {
           onChange={(e) =>
             setFormData((p) => ({ ...p, privacy: e.target.checked }))
           }
-          className="mt-0.5 flex-shrink-0"
+          className="mt-0.5 h-4 w-4 flex-shrink-0 accent-primary border border-gray-300"
         />
-        <span className="text-xs text-primary/80">{t("privacy")}</span>
+        <span className="text-[12px] md:text-[13px] text-primary/80 leading-relaxed">
+          {t("privacy")}
+        </span>
       </label>
-      <button
-        type="submit"
-        disabled={loading}
-        className="btn-accent px-8 py-4 disabled:opacity-60"
-      >
-        {loading ? "..." : t("invia")}
-      </button>
+      <div className="pt-2">
+        <button
+          type="submit"
+          disabled={loading}
+          className="btn-accent px-10 py-4 text-[15px] disabled:opacity-60"
+        >
+          {loading ? "..." : t("invia")}
+        </button>
+      </div>
     </form>
   );
 }
