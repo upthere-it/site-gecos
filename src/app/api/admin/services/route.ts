@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
+import { checkAdminAuth } from "@/lib/admin-auth";
 
 const CONTENT_PATH = path.join(process.cwd(), "src/data/site-content.json");
 
@@ -12,13 +13,8 @@ function writeContent(data: unknown) {
   fs.writeFileSync(CONTENT_PATH, JSON.stringify(data, null, 2), "utf-8");
 }
 
-function checkAuth(req: NextRequest): boolean {
-  const secret = req.headers.get("x-admin-secret");
-  return !!secret && secret === process.env.ADMIN_SECRET;
-}
-
 export async function POST(req: NextRequest) {
-  if (!checkAuth(req)) {
+  if (!checkAdminAuth(req)) {
     return NextResponse.json({ error: "Non autorizzato" }, { status: 401 });
   }
 
@@ -42,7 +38,7 @@ export async function POST(req: NextRequest) {
   const newService = {
     id: body.id,
     slug: body.slug,
-    order: body.order ?? maxOrder + 1,
+    order: typeof body.order === "number" ? body.order : maxOrder + 1,
     title: body.title ?? "",
     subtitle: body.subtitle ?? "",
     label: body.label ?? "",

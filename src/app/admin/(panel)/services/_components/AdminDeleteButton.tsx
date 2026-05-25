@@ -19,11 +19,11 @@ export default function AdminDeleteButton({ serviceId, serviceName }: Props) {
 
     setLoading(true);
     try {
+      // Il cookie admin_token è httpOnly → non leggibile da JS.
+      // Il browser lo invia automaticamente con credentials: "same-origin".
       const res = await fetch(`/api/admin/services/${serviceId}`, {
         method: "DELETE",
-        headers: {
-          "x-admin-secret": (document.cookie.match(/admin_token=([^;]+)/) ?? [])[1] ?? "",
-        },
+        credentials: "same-origin",
       });
 
       if (res.ok) {

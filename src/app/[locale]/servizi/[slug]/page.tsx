@@ -8,16 +8,10 @@ import Footer from "@/components/Footer";
 import Occhiello from "@/components/Occhiello";
 import BoxAiuto from "@/components/BoxAiuto";
 import Partner from "@/components/Partner";
-
-const SERVIZIO_SLUGS = [
-  "manutenzione-aree-verdi",
-  "gestione-aree-boschive",
-  "arredo-urbano",
-  "servizi-cimiteriali",
-];
+import { getServices, getServiceBySlug } from "@/lib/site-content";
 
 export function generateStaticParams() {
-  return SERVIZIO_SLUGS.map((slug) => ({ slug }));
+  return getServices().map((s) => ({ slug: s.slug }));
 }
 
 export async function generateMetadata({
@@ -26,12 +20,12 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const t = await getTranslations("servizi");
-  const index = SERVIZIO_SLUGS.indexOf(slug);
-  if (index === -1) return { title: "Servizio" };
-  const key = `servizio${index + 1}` as "servizio1";
-  const title = t(`${key}.title`);
-  const description = t(`${key}.subtitle`);
+  // Prova prima da site-content.json, fallback alle traduzioni
+  const service = getServiceBySlug(slug);
+  if (!service) return { title: "Servizio" };
+
+  const title = service.title;
+  const description = service.subtitle;
   return {
     title,
     description,
@@ -42,14 +36,9 @@ export async function generateMetadata({
     openGraph: {
       title: `${title} | GE.CO.S. S.r.l.`,
       description,
-      images: [
-        {
-          url: "/assets/photos/hero-bg.jpg",
-          width: 1440,
-          height: 717,
-          alt: `${title} – GE.CO.S. S.r.l.`,
-        },
-      ],
+      images: service.heroImage
+        ? [{ url: service.heroImage, alt: service.heroImageAlt || title }]
+        : [{ url: "/assets/photos/hero-bg.jpg", width: 1440, height: 717, alt: `${title} – GE.CO.S. S.r.l.` }],
     },
   };
 }
@@ -60,28 +49,28 @@ export default async function ServizioPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const index = SERVIZIO_SLUGS.indexOf(slug);
-  if (index === -1) notFound();
 
-  const n = index + 1;
-  const t = await getTranslations("servizi");
+  // Legge da site-content.json
+  const service = getServiceBySlug(slug);
+  if (!service) notFound();
+
   const th = await getTranslations("home");
   const tp = await getTranslations("home.partner");
+  const t = await getTranslations("servizi");
 
-  const key = `servizio${n}` as "servizio1" | "servizio2" | "servizio3" | "servizio4";
+  const allServices = getServices();
 
-  const altriServizi = [1, 2, 3, 4]
-    .filter((x) => x !== n)
+  const altriServizi = allServices
+    .filter((s) => s.slug !== slug)
     .slice(0, 2)
-    .map((x) => {
-      const k = `servizio${x}` as "servizio1";
-      return {
-        x,
-        label: t(`${k}.label`),
-        title: t(`${k}.title`),
-        href: `/it/servizi/${t(`${k}.slug`)}`,
-      };
-    });
+    .map((s) => ({
+      id: s.id,
+      label: s.label,
+      title: s.title,
+      href: `/it/servizi/${s.slug}`,
+      image: s.image,
+      imageAlt: s.imageAlt || s.title,
+    }));
 
   return (
     <>
@@ -90,8 +79,8 @@ export default async function ServizioPage({
         {/* ── Hero card ── */}
         <section className="relative h-[315px] overflow-hidden">
           <Image
-            src={`/assets/photos/servizio-${n}.jpg`}
-            alt={t(`${key}.title`)}
+            src={service.image}
+            alt={service.imageAlt || service.title}
             fill
             priority
             className="object-cover"
@@ -99,9 +88,9 @@ export default async function ServizioPage({
           />
           <div className="absolute inset-0 bg-primary/60" />
           <div className="absolute inset-0 flex flex-col justify-end pb-10 container-boxed">
-            <Occhiello label={t(`${key}.label`)} className="mb-4" />
+            <Occhiello label={service.label} className="mb-4" />
             <h1 className="text-3xl md:text-[40px] font-bold text-white leading-tight">
-              {t(`${key}.title`)}
+              {service.title}
             </h1>
           </div>
         </section>
@@ -111,27 +100,27 @@ export default async function ServizioPage({
           <div className="container-boxed">
             <div className="max-w-3xl">
               <h2 className="text-xl md:text-2xl font-bold text-primary">
-                {t(`${key}.subtitle`)}
+                {service.subtitle}
               </h2>
               <p className="text-[15px] font-bold text-primary leading-relaxed mt-6">
-                {t(`${key}.detail1Title`)}
+                {service.detail1Title}
               </p>
               <p className="text-[14px] text-primary/80 leading-relaxed mt-2">
-                {t(`${key}.detail1Text`)}
+                {service.detail1Text}
               </p>
               <p className="text-[15px] font-bold text-primary leading-relaxed mt-6">
-                {t(`${key}.detail2Title`)}
+                {service.detail2Title}
               </p>
               <p className="text-[14px] text-primary/80 leading-relaxed mt-2">
-                {t(`${key}.detail2Text`)}
+                {service.detail2Text}
               </p>
             </div>
 
-            {/* Photo */}
+            {/* Hero photo */}
             <div className="mt-12 relative w-full aspect-[16/9] overflow-hidden bg-gray-100">
               <Image
-                src={`/assets/photos/servizio-hero-${n}.jpg`}
-                alt={t(`${key}.title`)}
+                src={service.heroImage || service.image}
+                alt={service.heroImageAlt || service.imageAlt || service.title}
                 fill
                 className="object-cover"
                 sizes="(max-width: 1280px) 100vw, 1152px"
@@ -145,15 +134,15 @@ export default async function ServizioPage({
                   {t("scopriDiPiu")}
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                  {altriServizi.map(({ x, label, title, href }) => (
+                  {altriServizi.map((altro) => (
                     <Link
-                      key={x}
-                      href={href}
+                      key={altro.id}
+                      href={altro.href}
                       className="relative aspect-[571/315] overflow-hidden block group"
                     >
                       <Image
-                        src={`/assets/photos/servizio-${x}.jpg`}
-                        alt={title}
+                        src={altro.image}
+                        alt={altro.imageAlt}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-300"
                         sizes="(max-width: 768px) 100vw, 571px"
@@ -161,10 +150,10 @@ export default async function ServizioPage({
                       <div className="absolute inset-0 bg-primary/60 group-hover:bg-primary/70 transition-colors" />
                       <div className="absolute inset-0 flex flex-col justify-end p-[30px]">
                         <span className="text-accent text-[11px] font-bold uppercase tracking-[0.15em]">
-                          {label}
+                          {altro.label}
                         </span>
                         <span className="text-white text-2xl md:text-[28px] font-bold mt-2 leading-tight">
-                          {title}
+                          {altro.title}
                         </span>
                       </div>
                     </Link>

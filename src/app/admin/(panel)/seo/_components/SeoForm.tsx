@@ -18,10 +18,7 @@ interface Props {
   initialSeo: Record<string, string>;
 }
 
-function getAdminToken(): string {
-  if (typeof document === "undefined") return "";
-  return (document.cookie.match(/admin_token=([^;]+)/) ?? [])[1] ?? "";
-}
+// Il cookie admin_token (httpOnly) viene inviato automaticamente dal browser.
 
 const ROBOTS_OPTIONS = [
   "index,follow",
@@ -59,10 +56,8 @@ export default function SeoForm({ pageKey, pageLabel, initialSeo }: Props) {
     try {
       const res = await fetch(`/api/admin/pages/${pageKey}/seo`, {
         method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          "x-admin-secret": getAdminToken(),
-        },
+        headers: { "Content-Type": "application/json" },
+        credentials: "same-origin",
         body: JSON.stringify(form),
       });
 

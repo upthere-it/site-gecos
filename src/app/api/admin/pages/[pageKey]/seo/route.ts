@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
+import { checkAdminAuth } from "@/lib/admin-auth";
 
 const CONTENT_PATH = path.join(process.cwd(), "src/data/site-content.json");
 
@@ -12,16 +13,11 @@ function writeContent(data: unknown) {
   fs.writeFileSync(CONTENT_PATH, JSON.stringify(data, null, 2), "utf-8");
 }
 
-function checkAuth(req: NextRequest): boolean {
-  const secret = req.headers.get("x-admin-secret");
-  return !!secret && secret === process.env.ADMIN_SECRET;
-}
-
 export async function PUT(
   req: NextRequest,
   { params }: { params: Promise<{ pageKey: string }> }
 ) {
-  if (!checkAuth(req)) {
+  if (!checkAdminAuth(req)) {
     return NextResponse.json({ error: "Non autorizzato" }, { status: 401 });
   }
 
@@ -32,14 +28,14 @@ export async function PUT(
   }
 
   const content = readContent();
-  const pages = content.pages as Record<string, { seo: unknown }>;
+  const pages = content.pages as Record<string, { seo: Record<string, unknown> }>;
 
   if (!pages[pageKey]) {
     return NextResponse.json({ error: `Pagina "${pageKey}" non trovata` }, { status: 404 });
   }
 
   pages[pageKey].seo = {
-    ...((pages[pageKey].seo as Record<string, unknown>) ?? {}),
+    ...(pages[pageKey].seo ?? {}),
     ...body,
   };
 

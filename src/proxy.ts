@@ -1,8 +1,38 @@
-import createMiddleware from "next-intl/middleware";
+import { NextRequest, NextResponse } from "next/server";
+import createIntlMiddleware from "next-intl/middleware";
 import { routing } from "./i18n/routing";
 
-export default createMiddleware(routing);
+const intlMiddleware = createIntlMiddleware(routing);
+
+export default function middleware(req: NextRequest) {
+  const { pathname } = req.nextUrl;
+
+  // Admin auth guard — escludi login page e auth API
+  if (pathname.startsWith("/admin")) {
+    const isPublicAdminRoute =
+      pathname === "/admin/login" || pathname === "/api/admin/auth";
+
+    if (!isPublicAdminRoute) {
+      const adminSecret = process.env.ADMIN_SECRET;
+      const token = req.cookies.get("admin_token")?.value;
+
+      if (!adminSecret || token !== adminSecret) {
+        const loginUrl = req.nextUrl.clone();
+        loginUrl.pathname = "/admin/login";
+        return NextResponse.redirect(loginUrl);
+      }
+    }
+
+    return NextResponse.next();
+  }
+
+  // next-intl per tutte le rotte pubbliche
+  return intlMiddleware(req);
+}
 
 export const config = {
-  matcher: ["/((?!api|_next|_vercel|.*\\..*).*)"],
+  matcher: [
+    "/admin/:path*",
+    "/((?!api|_next|_vercel|.*\\..*).*)",
+  ],
 };

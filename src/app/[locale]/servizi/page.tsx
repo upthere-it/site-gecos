@@ -7,6 +7,7 @@ import CardServizi from "@/components/CardServizi";
 import BoxAiuto from "@/components/BoxAiuto";
 import FaqAccordion from "@/components/FaqAccordion";
 import Partner from "@/components/Partner";
+import { getServices } from "@/lib/site-content";
 
 export const metadata: Metadata = {
   title: "Servizi professionali per il verde",
@@ -37,20 +38,24 @@ export default async function ServiziPage() {
 
   const faqItems = (tf.raw("items") as { question: string; answer: string }[]).slice(0, 3);
 
-  const serviziCards = [1, 2, 3, 4].map((n) => {
-    const key = `servizio${n}` as "servizio1" | "servizio2" | "servizio3" | "servizio4";
+  // Legge i servizi da site-content.json (fonte di verità per i dati editabili).
+  // Le traduzioni restano come fallback per i testi non coperti da site-content.json.
+  const contentServices = getServices();
+
+  const serviziCards = contentServices.map((service, idx) => {
+    const n = idx + 1;
     return {
-      n,
-      imageSrc: `/assets/photos/servizio-${n}.jpg`,
-      imageAlt: t(`${key}.title`),
-      label: t(`${key}.label`),
-      title: t(`${key}.title`),
-      subtitle: t(`${key}.subtitle`),
-      detail1Title: t(`${key}.detail1Title`),
-      detail1Text: t(`${key}.detail1Text`),
-      detail2Title: t(`${key}.detail2Title`),
-      detail2Text: t(`${key}.detail2Text`),
-      linkHref: `/it/servizi/${t(`${key}.slug`)}`,
+      id: service.id,
+      imageSrc: service.image || `/assets/photos/servizio-${n}.jpg`,
+      imageAlt: service.imageAlt || service.title,
+      label: service.label,
+      title: service.title,
+      subtitle: service.subtitle,
+      detail1Title: service.detail1Title,
+      detail1Text: service.detail1Text,
+      detail2Title: service.detail2Title,
+      detail2Text: service.detail2Text,
+      linkHref: `/it/servizi/${service.slug}`,
       linkText: t("scopriDiPiu"),
     };
   });
@@ -74,7 +79,7 @@ export default async function ServiziPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-2 gap-y-12">
               {serviziCards.map((card) => (
                 <CardServizi
-                  key={card.n}
+                  key={card.id}
                   imageSrc={card.imageSrc}
                   imageAlt={card.imageAlt}
                   label={card.label}

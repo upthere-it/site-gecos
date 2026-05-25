@@ -42,10 +42,8 @@ const EMPTY: ServiceFormData = {
   heroImageAlt: "",
 };
 
-function getAdminToken(): string {
-  if (typeof document === "undefined") return "";
-  return (document.cookie.match(/admin_token=([^;]+)/) ?? [])[1] ?? "";
-}
+// Non serve estrarre il token dal cookie: il browser lo invia automaticamente
+// come cookie httpOnly con credentials: "same-origin".
 
 export default function ServiceForm({ initialData, mode }: Props) {
   const router = useRouter();
@@ -75,10 +73,8 @@ export default function ServiceForm({ initialData, mode }: Props) {
 
       const res = await fetch(url, {
         method,
-        headers: {
-          "Content-Type": "application/json",
-          "x-admin-secret": getAdminToken(),
-        },
+        headers: { "Content-Type": "application/json" },
+        credentials: "same-origin",
         body: JSON.stringify(form),
       });
 
