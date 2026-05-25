@@ -164,6 +164,17 @@
         "robots": "noindex,nofollow",
         "canonicalUrl": ""
       }
+    },
+    "whistleblowing": {
+      "seo": {
+        "metaTitle": "Whistleblowing – GE.CO.S. S.r.l.",
+        "metaDescription": "Canale di segnalazione Whistleblowing di GE.CO.S. S.r.l. ai sensi del D.Lgs. 24/2023. Protezione dei segnalanti e procedura di segnalazione.",
+        "ogTitle": "Whistleblowing – GE.CO.S. S.r.l.",
+        "ogDescription": "Segnala violazioni in modo sicuro e anonimo. GE.CO.S. S.r.l. garantisce la riservatezza e la protezione del segnalante.",
+        "ogImage": "",
+        "robots": "noindex,nofollow",
+        "canonicalUrl": "/it/whistleblowing"
+      }
     }
   }
 }

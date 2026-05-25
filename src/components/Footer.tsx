@@ -149,12 +149,12 @@ export default function Footer() {
                   {t("whistleblowing")}
                 </span>
               </div>
-              <a
-                href="#"
+              <Link
+                href="/it/whistleblowing"
                 className="text-sm text-primary underline hover:no-underline leading-6"
               >
                 {t("scaricaModulo")}
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -196,7 +196,7 @@ export default function Footer() {
             </Link>
             <span className="text-gray-200">|</span>
             <Link
-              href="#"
+              href="/it/whistleblowing"
               className="text-primary underline hover:no-underline"
             >
               {t("whistleblowingLink")}
