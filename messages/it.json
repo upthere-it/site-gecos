@@ -1,0 +1,267 @@
+{
+  "nav": {
+    "home": "Home",
+    "chiSiamo": "Chi siamo",
+    "servizi": "Servizi",
+    "certificazioni": "Certificazioni",
+    "faqs": "FAQs",
+    "contatti": "Contatti",
+    "chiama": "CHIAMA"
+  },
+  "home": {
+    "hero": {
+      "title": "Gestione e manutenzione del verde urbano e rurale",
+      "subtitle": "Affidabilità, competenza e rispetto per l'ambiente al servizio di enti pubblici e privati.",
+      "cta": "SCOPRI I SERVIZI",
+      "ctaChiama": "CHIAMA"
+    },
+    "loghi": {
+      "title": "I nostri partner di fiducia"
+    },
+    "chiSiamo": {
+      "occhiello": "CHI SIAMO",
+      "title": "Oltre 20 anni di esperienza nel verde",
+      "subtitle": "GE.CO.S. S.r.l. è specializzata nella gestione e manutenzione di aree verdi urbane e rurali, con un approccio sostenibile e certificato.",
+      "statLabel1": "COMMESSE",
+      "statLabel2": "ANNI DI ESPERIENZA",
+      "statLabel3": "CLIENTI SODDISFATTI",
+      "stat1": "+100",
+      "stat2": "+20",
+      "stat3": "99%",
+      "sectionTitle": "Un team qualificato al vostro fianco",
+      "sectionText": "Operiamo con professionalità e passione su tutto il territorio nazionale. Il nostro team è composto da operatori altamente qualificati, dotati delle migliori attrezzature e costantemente aggiornati sulle normative di settore.",
+      "card1Number": "01",
+      "card1Title": "ESPERIENZA PLURIENNALE",
+      "card1Text": "Oltre due decenni di attività nel settore del verde pubblico e privato ci hanno permesso di sviluppare competenze uniche e consolidate.",
+      "card2Number": "02",
+      "card2Title": "TECNOLOGIE AVANZATE",
+      "card2Text": "Utilizziamo macchinari e tecniche all'avanguardia per garantire risultati ottimali nel rispetto dell'ambiente.",
+      "card3Number": "03",
+      "card3Title": "CERTIFICAZIONI RICONOSCIUTE",
+      "card3Text": "Le nostre certificazioni attestano la qualità dei nostri processi e il nostro impegno verso la sostenibilità ambientale.",
+      "cta": "SCOPRI CHI SIAMO"
+    },
+    "certificazioni": {
+      "occhiello": "CERTIFICAZIONI",
+      "title": "Qualità certificata e riconosciuta",
+      "subtitle": "Le nostre certificazioni internazionali garantiscono processi di lavoro all'insegna della qualità, della sostenibilità e della parità di genere.",
+      "cta": "SCOPRI LE CERTIFICAZIONI",
+      "cert1Label": "QUALITÀ",
+      "cert1Title": "UNI EN ISO 9001:2015",
+      "cert2Label": "SOSTENIBILITÀ",
+      "cert2Title": "EMAS",
+      "cert3Label": "PARITÀ DI GENERE",
+      "cert3Title": "UNI/PDR 125:2022"
+    },
+    "servizi": {
+      "occhiello": "SERVIZI",
+      "title": "I nostri servizi professionali",
+      "subtitle": "Offriamo una gamma completa di servizi per la cura e la gestione del verde, adattati alle specifiche esigenze di ogni cliente.",
+      "cta": "SCOPRI I SERVIZI",
+      "scopriDiPiu": "Scopri di più"
+    },
+    "boxAiuto": {
+      "title": "Hai bisogno di aiuto?",
+      "subtitle": "Il nostro team è pronto ad assisterti e a trovare la soluzione migliore per le tue esigenze.",
+      "cta": "CHIAMA E TI AIUTEREMO"
+    },
+    "faqs": {
+      "occhiello": "FAQS",
+      "title": "Domande frequenti",
+      "subtitle": "Trova le risposte alle domande più comuni sui nostri servizi e sulla nostra azienda.",
+      "cta": "VAI ALLE FAQS"
+    },
+    "partner": {
+      "occhiello": "PARTNER",
+      "title": "I nostri clienti e partner",
+      "subtitle": "Collaboriamo con enti pubblici, aziende private e istituzioni di primo piano a livello nazionale."
+    }
+  },
+  "chiSiamo": {
+    "hero": {
+      "occhiello": "CHI SIAMO",
+      "title": "GE.CO.S. S.r.l.",
+      "titleAccent": "Gestione Costruzioni Servizi",
+      "subtitle": "Un'azienda solida, certificata e orientata alla qualità, con oltre vent'anni di esperienza nel settore del verde urbano e rurale."
+    },
+    "sezione1": {
+      "title": "La nostra storia",
+      "subtitle": "GE.CO.S. S.r.l. nasce a Pomezia con l'obiettivo di offrire servizi di manutenzione del verde di elevata qualità.",
+      "bodyTitle": "Professionalità e passione per il verde",
+      "bodyText": "La nostra missione è garantire ambienti verdi curati, sicuri e sostenibili. Ogni intervento è eseguito da personale specializzato con attrezzature certificate, nel pieno rispetto delle normative vigenti e dell'ambiente circostante."
+    },
+    "numeri": {
+      "n1": "+100",
+      "label1": "COMMESSE",
+      "n2": "+20",
+      "label2": "ANNI DI ESPERIENZA",
+      "n3": "99%",
+      "label3": "CLIENTI SODDISFATTI"
+    },
+    "dropdownTitle": "I nostri valori",
+    "dropdown1Title": "Qualità del servizio",
+    "dropdown1Text": "Ci impegniamo a fornire servizi di altissima qualità, certificati da organismi internazionali riconosciuti.",
+    "dropdown2Title": "Sostenibilità ambientale",
+    "dropdown2Text": "Adottiamo pratiche eco-sostenibili in ogni fase del nostro lavoro, dalla scelta delle attrezzature alla gestione dei rifiuti verdi. Il nostro impegno per l'ambiente è testimoniato dalla certificazione EMAS.",
+    "dropdown3Title": "Sicurezza sul lavoro",
+    "dropdown3Text": "La sicurezza dei nostri operatori è la nostra priorità assoluta. Tutti i nostri interventi rispettano le normative sulla sicurezza sul lavoro."
+  },
+  "servizi": {
+    "hero": {
+      "occhiello": "SERVIZI",
+      "title": "I nostri servizi",
+      "titleAccent": "professionali",
+      "subtitle": "Una gamma completa di soluzioni per la cura e la gestione del verde, personalizzate per ogni esigenza."
+    },
+    "title": "Cosa facciamo",
+    "subtitle": "GE.CO.S. offre servizi integrati per la manutenzione di parchi, giardini, aree boschive e spazi pubblici.",
+    "scopriDiPiu": "Scopri di più",
+    "servizio1": {
+      "slug": "manutenzione-aree-verdi",
+      "label": "MANUTENZIONE",
+      "title": "Manutenzione aree verdi",
+      "subtitle": "Cura e gestione di parchi, giardini e aree a verde urbano e periurbano.",
+      "detail1Title": "Taglio erba e sfalcio",
+      "detail1Text": "Interventi periodici di sfalcio su superfici di qualsiasi dimensione, con macchinari professionali.",
+      "detail2Title": "Potatura alberi e siepi",
+      "detail2Text": "Potatura eseguita da arboricoltura certificata, nel rispetto della fisiologia delle piante e delle normative locali.",
+      "linkText": "Scopri di più"
+    },
+    "servizio2": {
+      "slug": "gestione-aree-boschive",
+      "label": "GESTIONE BOSCHIVA",
+      "title": "Gestione aree boschive",
+      "subtitle": "Interventi specializzati per la cura e la sicurezza di aree forestali e naturali.",
+      "detail1Title": "Pulizia e decespugliamento",
+      "detail1Text": "Operazioni di bonifica e pulizia di aree incolte, sentieri e zone di interfaccia urbano-forestale.",
+      "detail2Title": "Prevenzione incendi",
+      "detail2Text": "Creazione di fasce tagliafuoco e riduzione del combustibile vegetale per la protezione delle aree boschive.",
+      "linkText": "Scopri di più"
+    },
+    "servizio3": {
+      "slug": "arredo-urbano",
+      "label": "ARREDO URBANO",
+      "title": "Arredo urbano e fioriture",
+      "subtitle": "Progettazione e cura di aiuole, fioriture stagionali e spazi pubblici ornamentali.",
+      "detail1Title": "Allestimento aiuole",
+      "detail1Text": "Progettazione e realizzazione di aiuole fiorite per centri urbani, rotatorie e spazi pubblici.",
+      "detail2Title": "Fioriture stagionali",
+      "detail2Text": "Selezione e messa a dimora di piante stagionali per mantenere gli spazi pubblici sempre curati e colorati.",
+      "linkText": "Scopri di più"
+    },
+    "servizio4": {
+      "slug": "servizi-cimiteriali",
+      "label": "CIMITERIALE",
+      "title": "Servizi cimiteriali",
+      "subtitle": "Gestione e manutenzione di aree cimiteriali con cura e rispetto.",
+      "detail1Title": "Manutenzione ordinaria",
+      "detail1Text": "Pulizia, taglio erba e cura delle aree verdi all'interno dei cimiteri comunali.",
+      "detail2Title": "Gestione dei rifiuti",
+      "detail2Text": "Raccolta e smaltimento dei rifiuti vegetali nel rispetto delle normative ambientali vigenti.",
+      "linkText": "Scopri di più"
+    }
+  },
+  "certificazioni": {
+    "hero": {
+      "occhiello": "CERTIFICAZIONI",
+      "title": "Qualità certificata",
+      "titleAccent": "e riconosciuta",
+      "subtitle": "Le nostre certificazioni attestano il nostro impegno per la qualità, la sostenibilità e l'inclusività."
+    },
+    "cert1": {
+      "label": "QUALITÀ",
+      "title": "UNI EN ISO 9001:2015",
+      "text": "Il Sistema di Gestione per la Qualità di GE.CO.S. S.r.l. è certificato UNI EN ISO 9001:2015 per il campo di applicazione: Manutenzione di aree verdi.",
+      "body": "La certificazione ISO 9001 attesta che i nostri processi aziendali soddisfano i requisiti internazionali per la gestione della qualità, garantendo ai clienti servizi affidabili e conformi."
+    },
+    "cert2": {
+      "label": "SOSTENIBILITÀ",
+      "title": "EMAS",
+      "text": "GE.CO.S. S.r.l. è registrata nel sistema comunitario di ecogestione e audit EMAS (Eco-Management and Audit Scheme).",
+      "body": "La certificazione EMAS dimostra il nostro impegno concreto verso la riduzione dell'impatto ambientale delle nostre attività, con obiettivi di miglioramento continuo documentati e verificati da terze parti."
+    },
+    "cert3": {
+      "label": "PARITÀ DI GENERE",
+      "title": "UNI/PDR 125:2022",
+      "text": "GE.CO.S. S.r.l. è certificata per la parità di genere secondo la prassi di riferimento UNI/PDR 125:2022.",
+      "body": "Questa certificazione riconosce il nostro impegno nella promozione di politiche aziendali volte alla parità di genere, all'equità retributiva e alla creazione di un ambiente di lavoro inclusivo."
+    }
+  },
+  "faqs": {
+    "occhiello": "FAQS",
+    "title": "Domande frequenti",
+    "subtitle": "Trova le risposte alle domande più comuni sui nostri servizi e sulla nostra azienda.",
+    "items": [
+      {
+        "question": "In quali zone operate?",
+        "answer": "GE.CO.S. S.r.l. opera principalmente nel Lazio e nelle regioni limitrofe, con base operativa a Pomezia (RM). Per interventi straordinari siamo in grado di operare su tutto il territorio nazionale."
+      },
+      {
+        "question": "Quali enti pubblici assistete?",
+        "answer": "Collaboriamo con comuni, province, enti parco, aziende municipalizzate e gestori di infrastrutture. Tra i nostri clienti figurano ANAS Gruppo FS Italiane, ACEA S.p.A. e diverse amministrazioni comunali del territorio."
+      },
+      {
+        "question": "Come posso richiedere un preventivo?",
+        "answer": "Potete contattarci telefonicamente ai numeri 069107142 o 0691603098, oppure compilare il modulo di contatto sul nostro sito. Il nostro team vi ricontatterà nel più breve tempo possibile per valutare insieme le vostre esigenze."
+      },
+      {
+        "question": "Quali certificazioni possedete?",
+        "answer": "GE.CO.S. S.r.l. è certificata ISO 9001:2015 per la gestione della qualità, registrata EMAS per la sostenibilità ambientale, e certificata UNI/PDR 125:2022 per la parità di genere."
+      },
+      {
+        "question": "Effettuate interventi di emergenza?",
+        "answer": "Sì, siamo attrezzati per rispondere a interventi urgenti come abbattimento di alberi pericolanti, rimozione di rami spezzati post-tempesta e altri interventi di pronto intervento sul verde."
+      },
+      {
+        "question": "Gestite anche aree boschive e forestali?",
+        "answer": "Sì, la gestione di aree boschive e forestali è uno dei nostri core business. Siamo specializzati in pulizia e decespugliamento, prevenzione incendi boschivi e interventi di forestazione."
+      }
+    ]
+  },
+  "contatti": {
+    "occhiello": "CONTATTI",
+    "title": "Contattaci",
+    "subtitle": "Siamo a vostra disposizione per qualsiasi informazione o richiesta di preventivo.",
+    "sedeOperativa": "Sede operativa",
+    "sedeLegale": "Sede legale",
+    "profiliSocial": "Profili social",
+    "telefono": "TELEFONO",
+    "email": "E-MAIL",
+    "form": {
+      "nome": "Nome e cognome*",
+      "email": "E-mail*",
+      "telefono": "Telefono*",
+      "bisogno": "Di cosa hai bisogno?",
+      "messaggio": "Messaggio",
+      "privacy": "Dichiaro di aver letto l'Informativa Privacy ai sensi del Regolamento UE 2016/679 (GDPR) e acconsento al trattamento dei dati personali.",
+      "invia": "INVIA RICHIESTA",
+      "bisognoOptions": [
+        "Manutenzione aree verdi",
+        "Gestione aree boschive",
+        "Arredo urbano e fioriture",
+        "Servizi cimiteriali",
+        "Altro"
+      ]
+    },
+    "mapTitle": "Sede operativa GE.CO.S. - Pomezia"
+  },
+  "conferma": {
+    "title": "Grazie per averci contattato!",
+    "text1": "Abbiamo ricevuto correttamente la sua richiesta.",
+    "text2": "Un membro del team di GE.CO.S. la ricontatterà al più presto per fornirle tutte le informazioni necessarie. Nel frattempo, la ringraziamo per l'interesse e restiamo a disposizione.",
+    "cta": "TORNA ALLA HOME"
+  },
+  "footer": {
+    "tagline": "Gestione Costruzioni Servizi S.r.l.",
+    "sedeOperativa": "Sede operativa",
+    "sedeLegale": "Sede legale",
+    "profiliSocial": "Profili social",
+    "email": "E-MAIL",
+    "telefono": "TELEFONO",
+    "whistleblowing": "WHISTLEBLOWING",
+    "scaricaModulo": "Scarica modulo",
+    "copyright": "© 2026 GE.CO.S. S.r.l. Tutti i diritti riservati - C.F., P.IVA, C.C.I.A.A.: 07554601000 - Iscrizione REA: RM-1040431",
+    "privacyPolicy": "Privacy Policy",
+    "whistleblowingLink": "Whistleblowing"
+  }
+}
