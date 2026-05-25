@@ -3,7 +3,6 @@ import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Partner from "@/components/Partner";
 
 export const metadata: Metadata = {
   title: "Richiesta inviata",
@@ -12,35 +11,31 @@ export const metadata: Metadata = {
 
 export default async function ConfermaPage() {
   const t = await getTranslations("conferma");
-  const tp = await getTranslations("home.partner");
 
   return (
     <>
       <Header />
       <main>
-        <section className="py-24 bg-white">
-          <div className="container-boxed">
-            <h1 className="text-3xl md:text-4xl font-bold text-primary">
+        <section className="pt-16 pb-32 bg-white">
+          <div className="container-boxed max-w-4xl">
+            <h1 className="text-3xl md:text-[40px] font-bold text-primary leading-tight">
               {t("title")}
             </h1>
-            <div className="mt-6 max-w-2xl space-y-4">
-              <p className="text-base text-primary/80">{t("text1")}</p>
-              <p className="text-sm text-primary/70">{t("text2")}</p>
+            <div className="mt-10 space-y-2">
+              <p className="text-[17px] font-bold text-primary">
+                {t("text1")}
+              </p>
+              <p className="text-[15px] md:text-base text-primary/80 leading-relaxed max-w-2xl">
+                {t("text2")}
+              </p>
             </div>
-            <div className="mt-8">
+            <div className="mt-10">
               <Link href="/it" className="btn-outline px-8 py-4">
                 {t("cta")}
               </Link>
             </div>
           </div>
         </section>
-
-        {/* ── Partner ── */}
-        <Partner
-          occhiello={tp("occhiello")}
-          title={tp("title")}
-          subtitle={tp("subtitle")}
-        />
       </main>
       <Footer />
     </>
