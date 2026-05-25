@@ -1,7 +1,7 @@
 interface StatItem {
   value: string;
   label: string;
-  variant: "dark" | "light" | "dark";
+  variant?: "dark" | "light";
 }
 
 interface BoxDatiProps {
@@ -18,26 +18,26 @@ export default function BoxDati({ stats }: BoxDatiProps) {
     light: "text-primary",
   };
   const labelColorMap = {
-    dark: "text-accent/80",
-    light: "text-primary/70",
+    dark: "text-accent",
+    light: "text-primary",
   };
 
   return (
-    <div className="grid grid-cols-3">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
       {stats.map((stat, i) => {
-        const variant = i === 1 ? "light" : "dark";
+        const variant: "dark" | "light" = i === 1 ? "light" : "dark";
         return (
           <div
             key={i}
-            className={`${bgMap[variant]} flex flex-col items-center justify-center py-8 px-4 border border-primary/20`}
+            className={`${bgMap[variant]} flex flex-col items-center justify-center py-10 px-6 min-h-[130px]`}
           >
             <span
-              className={`text-4xl md:text-5xl font-bold ${valColorMap[variant]}`}
+              className={`text-5xl md:text-[56px] font-bold leading-none ${valColorMap[variant]}`}
             >
               {stat.value}
             </span>
             <span
-              className={`text-xs font-bold uppercase tracking-widest mt-2 ${labelColorMap[variant]}`}
+              className={`text-xs md:text-sm font-bold uppercase tracking-[0.2em] mt-3 ${labelColorMap[variant]}`}
             >
               {stat.label}
             </span>

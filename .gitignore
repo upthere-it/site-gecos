@@ -39,3 +39,31 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*.sublime-*
+
+# OS
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Local env (overrides)
+.env.local
+.env.*.local
+
+# Build/cache artifacts
+*.tgz
+.cache/
+.turbo/
+
+# Test/coverage
+/coverage
+*.lcov

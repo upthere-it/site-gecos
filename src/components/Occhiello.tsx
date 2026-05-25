@@ -6,7 +6,7 @@ interface OcchielloProps {
 export default function Occhiello({ label, className = "" }: OcchielloProps) {
   return (
     <span
-      className={`inline-block border border-primary bg-accent-light px-2 py-1 text-xs font-bold uppercase tracking-widest text-primary ${className}`}
+      className={`inline-flex items-center border border-primary bg-accent-light px-3 py-1.5 text-[11px] md:text-xs font-bold uppercase tracking-[0.15em] text-primary leading-none h-[29px] md:h-[39px] ${className}`}
     >
       {label}
     </span>

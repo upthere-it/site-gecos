@@ -37,19 +37,19 @@ export default function Header() {
               width={171}
               height={54}
               priority
-              className="h-[54px] w-auto"
+              className="h-[54px] w-[171px]"
             />
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-6 xl:gap-10">
-            <ul className="flex items-center gap-4 xl:gap-6">
+          <nav className="hidden lg:flex items-center gap-[60px] xl:gap-[97px]">
+            <ul className="flex items-center gap-[28px] xl:gap-[40px]">
               {NAV_LINKS.map(({ key, href }) => (
                 <li key={key}>
                   <Link
                     href={href}
-                    className={`text-sm xl:text-base font-medium text-primary transition-opacity hover:opacity-70 ${
-                      isActive(href) ? "font-bold" : ""
+                    className={`text-base leading-6 text-primary transition-opacity hover:opacity-70 ${
+                      isActive(href) ? "font-bold" : "font-medium"
                     }`}
                   >
                     {t(key as "home")}
@@ -59,7 +59,7 @@ export default function Header() {
             </ul>
             <Link
               href="tel:069107142"
-              className="btn-accent px-5 py-3 text-sm font-bold"
+              className="inline-flex items-center justify-center bg-accent hover:bg-accent-dark text-primary font-bold text-sm tracking-[0.04em] h-[52px] w-[111px] transition-colors"
             >
               {t("chiama")}
             </Link>
@@ -80,8 +80,8 @@ export default function Header() {
 
       {/* Mobile menu overlay */}
       {menuOpen && (
-        <div className="fixed inset-0 z-[100] bg-gray-50 flex flex-col">
-          <div className="flex items-center justify-between px-5 pt-5 pb-4">
+        <div className="fixed inset-0 z-[100] bg-[#F5F5F5] flex flex-col lg:hidden">
+          <div className="flex items-center justify-between bg-white px-5 h-[64px] flex-shrink-0">
             <Link href="/it" onClick={() => setMenuOpen(false)}>
               <Image
                 src="/assets/logo-gecos.png"
@@ -93,20 +93,22 @@ export default function Header() {
             </Link>
             <button
               onClick={() => setMenuOpen(false)}
-              className="text-2xl text-primary leading-none"
+              className="text-primary leading-none p-2 -mr-2"
               aria-label="Chiudi menu"
             >
-              ×
+              <span className="material-symbols-outlined text-[24px]">
+                close
+              </span>
             </button>
           </div>
-          <nav className="flex-1">
+          <nav className="flex-1 overflow-y-auto">
             <ul>
               {NAV_LINKS.map(({ key, href }) => (
-                <li key={key} className="border-b border-gray-200">
+                <li key={key} className="border-b border-[#E5E5E5]">
                   <Link
                     href={href}
                     onClick={() => setMenuOpen(false)}
-                    className="block px-5 py-4 text-lg font-bold uppercase text-primary tracking-wide"
+                    className="block px-6 py-[18px] text-base font-bold uppercase text-primary tracking-[0.04em]"
                   >
                     {t(key as "home")}
                   </Link>

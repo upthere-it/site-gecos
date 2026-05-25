@@ -54,23 +54,26 @@ export default async function ChiSiamoPage() {
             className="object-cover"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-primary/60" />
-          <div className="absolute inset-0 flex flex-col justify-end pb-12 container-boxed">
-            <Occhiello label={t("hero.occhiello")} className="mb-4" />
-            <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-              {t("hero.title")}{" "}
-              <span className="text-accent">{t("hero.titleAccent")}</span>
-            </h1>
-            <p className="mt-3 text-base text-white/80 max-w-2xl">
-              {t("hero.subtitle")}
-            </p>
-            <div className="mt-4 flex gap-2">
-              {Array.from({ length: 6 }).map((_, i) => (
-                <span
-                  key={i}
-                  className={`block h-0.5 w-6 ${i === 0 ? "bg-accent" : "bg-accent/40"}`}
-                />
-              ))}
+          <div className="absolute inset-0 bg-primary/55" />
+          <div className="absolute inset-0 flex items-center">
+            <div className="container-boxed w-full">
+              <Occhiello label={t("hero.occhiello")} className="mb-5" />
+              <h1 className="text-4xl md:text-5xl lg:text-[56px] font-bold text-white leading-[1.05] tracking-tight">
+                {t("hero.title")}{" "}
+                <span className="text-accent">{t("hero.titleAccent")}</span>
+              </h1>
+              <p className="mt-4 text-base md:text-lg text-white/90 max-w-3xl leading-relaxed">
+                {t("hero.subtitle")}
+              </p>
+              <div className="mt-5 flex items-center gap-2">
+                <span className="block h-[3px] w-7 bg-accent" />
+                {Array.from({ length: 4 }).map((_, i) => (
+                  <span
+                    key={i}
+                    className="block h-[3px] w-7 bg-accent/40"
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </section>

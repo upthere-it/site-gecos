@@ -19,14 +19,12 @@ export default function SectionTitle({
 
   return (
     <div className={`${alignClass} ${className}`}>
-      {occhiello && (
-        <Occhiello label={occhiello} className="mb-4" />
-      )}
-      <h2 className="text-3xl font-bold text-primary md:text-4xl lg:text-[2.3rem] leading-tight">
+      {occhiello && <Occhiello label={occhiello} className="mb-4" />}
+      <h2 className="text-3xl md:text-4xl lg:text-[2.5rem] font-bold text-primary leading-tight">
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-3 text-base text-primary/80 md:text-lg max-w-3xl">
+        <p className="mt-4 text-base md:text-lg text-primary/80 max-w-3xl leading-relaxed">
           {subtitle}
         </p>
       )}
