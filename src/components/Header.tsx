@@ -80,7 +80,7 @@ export default function Header() {
 
       {/* Mobile menu overlay */}
       {menuOpen && (
-        <div className="fixed inset-0 z-[100] bg-[#F5F5F5] flex flex-col lg:hidden">
+        <div className="fixed inset-0 z-[100] bg-gray-50 flex flex-col lg:hidden">
           <div className="flex items-center justify-between bg-white px-5 h-[64px] flex-shrink-0">
             <Link href="/it" onClick={() => setMenuOpen(false)}>
               <Image
@@ -104,7 +104,7 @@ export default function Header() {
           <nav className="flex-1 overflow-y-auto">
             <ul>
               {NAV_LINKS.map(({ key, href }) => (
-                <li key={key} className="border-b border-[#E5E5E5]">
+                <li key={key} className="border-b border-gray-100">
                   <Link
                     href={href}
                     onClick={() => setMenuOpen(false)}

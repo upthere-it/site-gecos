@@ -77,7 +77,7 @@ export default function CardServizi({
       </div>
 
       {/* Detail panel */}
-      <div className="bg-[#F5F5F5] p-[30px] flex-1 flex flex-col">
+      <div className="bg-gray-50 p-[30px] flex-1 flex flex-col">
         <div className="space-y-6 flex-1">
           <div>
             <p className="font-bold text-primary text-[15px]">{detail1Title}</p>

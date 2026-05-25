@@ -37,7 +37,7 @@ export default function Footer() {
             height={54}
             className="h-[54px] w-[171px]"
           />
-          <div className="w-px h-[42px] bg-[#D9D9D9]" />
+          <div className="w-px h-[42px] bg-gray-200" />
           <span className="text-base text-primary font-normal">
             {t("tagline")}
           </span>
@@ -142,10 +142,10 @@ export default function Footer() {
             </ul>
             <div>
               <div className="flex items-center gap-2 mb-2">
-                <span className="material-symbols-outlined text-[18px] text-[#C99700]">
+                <span className="material-symbols-outlined text-[18px] text-warning">
                   info
                 </span>
-                <span className="font-bold text-sm text-[#C99700] uppercase tracking-[0.04em] leading-6">
+                <span className="font-bold text-sm text-warning uppercase tracking-[0.04em] leading-6">
                   {t("whistleblowing")}
                 </span>
               </div>
@@ -177,7 +177,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-[#E5E5E5] py-5 mt-8">
+      <div className="border-t border-gray-100 py-5 mt-8">
         <div className="container-boxed flex flex-col md:flex-row items-start md:items-center justify-between gap-2">
           <p className="text-xs text-primary">{t("copyright")}</p>
           <div className="flex items-center gap-3 text-xs">
@@ -187,7 +187,7 @@ export default function Footer() {
             >
               {t("privacyPolicy")}
             </Link>
-            <span className="text-[#D9D9D9]">|</span>
+            <span className="text-gray-200">|</span>
             <Link
               href="#"
               className="text-primary underline hover:no-underline"
