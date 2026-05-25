@@ -168,7 +168,7 @@ export default async function ChiSiamoPage() {
                 {t("dropdownTitle")}
               </h2>
               <p className="text-base text-primary/80 max-w-3xl mb-8">
-                {t("sezione1.subtitle")}
+                {t("dropdownSubtitle")}
               </p>
               <FaqAccordion items={dropdownItems} />
             </div>

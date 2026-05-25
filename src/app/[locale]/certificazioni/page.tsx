@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Occhiello from "@/components/Occhiello";
@@ -14,6 +15,83 @@ export const metadata: Metadata = {
   description:
     "GE.CO.S. S.r.l. – certificata ISO 9001:2015, EMAS e UNI/PDR 125:2022. Qualità, sostenibilità e parità di genere.",
 };
+
+interface CertCardProps {
+  imageSrc: string;
+  imageAlt: string;
+  label: string;
+  title: string;
+  text: string;
+  body: string;
+  previewUrl: string;
+  pdfUrl: string;
+  ctaPreview: string;
+  ctaPdf: string;
+}
+
+function CertCard({
+  imageSrc,
+  imageAlt,
+  label,
+  title,
+  text,
+  body,
+  previewUrl,
+  pdfUrl,
+  ctaPreview,
+  ctaPdf,
+}: CertCardProps) {
+  return (
+    <div className="flex flex-col border border-gray-200">
+      {/* Immagine certificato */}
+      <div className="relative overflow-hidden aspect-[364/400] bg-gray-100">
+        <Image
+          src={imageSrc}
+          alt={imageAlt}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 364px"
+        />
+      </div>
+
+      {/* Label + Titolo */}
+      <div className="px-6 pt-5 pb-1">
+        <span className="block text-[11px] font-bold uppercase tracking-[0.15em] text-primary/60">
+          {label}
+        </span>
+        <h3 className="text-xl md:text-2xl font-bold text-primary leading-tight mt-1">
+          {title}
+        </h3>
+      </div>
+
+      {/* Testo descrittivo */}
+      <div className="px-6 pt-4 pb-2 space-y-3 flex-1">
+        <p className="text-[14px] text-primary/80 leading-relaxed">{text}</p>
+        <p className="text-[14px] text-primary/80 leading-relaxed">{body}</p>
+      </div>
+
+      {/* Pulsanti */}
+      <div className="px-6 pb-6 pt-4 flex flex-col gap-3">
+        <Link
+          href={previewUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block text-center text-[13px] font-bold text-primary uppercase tracking-[0.1em] border border-primary py-3 px-4 hover:bg-primary hover:text-white transition-colors"
+        >
+          {ctaPreview}
+        </Link>
+        <Link
+          href={pdfUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block text-center text-[13px] font-bold text-accent uppercase tracking-[0.1em] border border-primary py-3 px-4 hover:bg-primary hover:text-white transition-colors"
+        >
+          {ctaPdf}
+        </Link>
+      </div>
+    </div>
+  );
+}
 
 export default async function CertificazioniPage() {
   const t = await getTranslations("certificazioni");
@@ -30,6 +108,8 @@ export default async function CertificazioniPage() {
       title: t("cert1.title"),
       text: t("cert1.text"),
       body: t("cert1.body"),
+      pdfUrl: t("cert1.pdfUrl"),
+      previewUrl: t("cert1.previewUrl"),
     },
     {
       n: 2,
@@ -37,6 +117,8 @@ export default async function CertificazioniPage() {
       title: t("cert2.title"),
       text: t("cert2.text"),
       body: t("cert2.body"),
+      pdfUrl: t("cert2.pdfUrl"),
+      previewUrl: t("cert2.previewUrl"),
     },
     {
       n: 3,
@@ -44,6 +126,32 @@ export default async function CertificazioniPage() {
       title: t("cert3.title"),
       text: t("cert3.text"),
       body: t("cert3.body"),
+      pdfUrl: t("cert3.pdfUrl"),
+      previewUrl: t("cert3.previewUrl"),
+    },
+  ];
+
+  const attestati = [
+    {
+      n: 1,
+      label: t("attestati.att1.label"),
+      title: t("attestati.att1.title"),
+      text: t("attestati.att1.text"),
+      body: t("attestati.att1.body"),
+    },
+    {
+      n: 2,
+      label: t("attestati.att2.label"),
+      title: t("attestati.att2.title"),
+      text: t("attestati.att2.text"),
+      body: t("attestati.att2.body"),
+    },
+    {
+      n: 3,
+      label: t("attestati.att3.label"),
+      title: t("attestati.att3.title"),
+      text: t("attestati.att3.text"),
+      body: t("attestati.att3.body"),
     },
   ];
 
@@ -51,7 +159,7 @@ export default async function CertificazioniPage() {
     <>
       <Header />
       <main>
-        {/* ── Header sezione ── */}
+        {/* ── Header sezione (bianco — nessun hero con immagine nel Figma) ── */}
         <section className="pt-16 pb-10 bg-white">
           <div className="container-boxed">
             <Occhiello label={t("hero.occhiello")} className="mb-4" />
@@ -69,38 +177,49 @@ export default async function CertificazioniPage() {
         <section className="pb-20 bg-white">
           <div className="container-boxed">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {certs.map(({ n, label, title, text, body }) => (
-                <div key={n} className="flex flex-col">
-                  {/* Card con foto certificato + overlay */}
-                  <div className="relative overflow-hidden aspect-[368/280] bg-gray-100">
-                    <Image
-                      src={`/assets/certs/cert-${n}.png`}
-                      alt={`Certificazione ${title}`}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 368px"
-                    />
-                    <div className="absolute inset-0 bg-primary/70" />
-                    <div className="absolute inset-0 flex flex-col justify-end p-6">
-                      <span className="text-accent text-[11px] font-bold uppercase tracking-[0.15em]">
-                        {label}
-                      </span>
-                      <span className="text-white text-xl md:text-2xl font-bold mt-2 leading-tight">
-                        {title}
-                      </span>
-                    </div>
-                  </div>
+              {certs.map(({ n, label, title, text, body, pdfUrl, previewUrl }) => (
+                <CertCard
+                  key={n}
+                  imageSrc={`/assets/certs/cert-${n}.jpg`}
+                  imageAlt={`Certificazione ${title}`}
+                  label={label}
+                  title={title}
+                  text={text}
+                  body={body}
+                  previewUrl={previewUrl}
+                  pdfUrl={pdfUrl}
+                  ctaPreview={t("apriAnteprima")}
+                  ctaPdf={t("scaricaPdf")}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
 
-                  {/* Testo descrittivo */}
-                  <div className="pt-6 pr-2 space-y-4">
-                    <p className="text-[14px] text-primary/80 leading-relaxed">
-                      {text}
-                    </p>
-                    <p className="text-[14px] text-primary/80 leading-relaxed">
-                      {body}
-                    </p>
-                  </div>
-                </div>
+        {/* ── Attestati ── */}
+        <section className="py-16 bg-white border-t border-gray-100">
+          <div className="container-boxed">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-2">
+              {t("attestati.title")}
+            </h2>
+            <p className="text-base text-primary/80 max-w-3xl mb-10">
+              {t("attestati.subtitle")}
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {attestati.map(({ n, label, title, text, body }) => (
+                <CertCard
+                  key={n}
+                  imageSrc={`/assets/certs/cert-${n}.jpg`}
+                  imageAlt={`Attestato ${title}`}
+                  label={label}
+                  title={title}
+                  text={text}
+                  body={body ?? ""}
+                  previewUrl={`/assets/certs/cert-${n}.jpg`}
+                  pdfUrl={`/assets/certs/cert-${n}.jpg`}
+                  ctaPreview={t("apriAnteprima")}
+                  ctaPdf={t("scaricaPdf")}
+                />
               ))}
             </div>
           </div>
@@ -124,6 +243,14 @@ export default async function CertificazioniPage() {
             />
             <div className="mt-10 max-w-3xl mx-auto">
               <FaqAccordion items={faqItems} />
+            </div>
+            <div className="mt-10 flex justify-center">
+              <Link
+                href="/faqs"
+                className="inline-block border border-primary text-primary text-[13px] font-bold uppercase tracking-[0.1em] py-3 px-8 hover:bg-primary hover:text-white transition-colors"
+              >
+                {th("faqs.cta")}
+              </Link>
             </div>
           </div>
         </section>
