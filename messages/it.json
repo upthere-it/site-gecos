@@ -235,6 +235,7 @@
       "messaggio": "Messaggio",
       "privacy": "Dichiaro di aver letto l'Informativa Privacy ai sensi del Regolamento UE 2016/679 (GDPR) e acconsento al trattamento dei dati personali.",
       "invia": "INVIA RICHIESTA",
+      "errore": "Si è verificato un errore nell'invio della richiesta. Riprova o contattaci telefonicamente.",
       "bisognoOptions": [
         "Manutenzione aree verdi",
         "Gestione aree boschive",

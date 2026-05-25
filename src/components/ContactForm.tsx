@@ -21,9 +21,29 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 800));
-    setLoading(false);
-    router.push("/it/conferma");
+    try {
+      const res = await fetch("/api/loonar/ticket", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: formData.email,
+          msg: formData.messaggio,
+          data: JSON.stringify({
+            nome: formData.nome,
+            telefono: formData.telefono,
+            bisogno: formData.bisogno,
+          }),
+          attachments: null,
+        }),
+      });
+      const json = await res.json();
+      if (json.status !== 200) throw new Error(json.message);
+      router.push("/it/conferma");
+    } catch {
+      alert(t("errore"));
+    } finally {
+      setLoading(false);
+    }
   };
 
   const options = (t.raw("bisognoOptions") as string[]) ?? [];
