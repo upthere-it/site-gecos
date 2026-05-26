@@ -1,4 +1,5 @@
 import type { ServiceItem, SeoData } from "./site-content";
+import itMessages from "../../messages/it.json";
 
 const BASE = process.env.CONTENT_API_URL;
 
@@ -32,13 +33,7 @@ export async function getMessages(
     `/api/v1/messages/${locale}`
   );
   if (api) return api;
-  try {
-    const mod = await import(`../../messages/${locale}.json`);
-    return mod.default as Record<string, unknown>;
-  } catch {
-    const fallback = await import(`../../messages/it.json`);
-    return fallback.default as Record<string, unknown>;
-  }
+  return itMessages as Record<string, unknown>;
 }
 
 export async function getCompany(): Promise<CompanyData | null> {
