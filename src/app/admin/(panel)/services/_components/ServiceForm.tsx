@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
+import ImageUploadField from "@/app/admin/_components/ImageUploadField";
 
 export interface ServiceFormData {
   id: string;
@@ -251,52 +252,42 @@ export default function ServiceForm({ initialData, mode }: Props) {
         <legend className="text-xs font-bold text-gray-500 uppercase tracking-wide px-1 mb-4">
           Immagini
         </legend>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div>
-            <label className="block text-xs font-bold text-primary uppercase tracking-wide mb-1">
-              Card image path
-            </label>
-            <input
-              type="text"
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="space-y-4">
+            <ImageUploadField
+              label="Card image"
               value={form.image}
-              onChange={(e) => handleChange("image", e.target.value)}
-              placeholder="/assets/photos/servizio-1.jpg"
-              className="w-full border border-gray-300 px-3 py-2 text-sm text-primary focus:outline-none focus:border-primary font-mono"
+              onChange={(url) => handleChange("image", url)}
             />
+            <div>
+              <label className="block text-xs font-bold text-primary uppercase tracking-wide mb-1">
+                Card image alt
+              </label>
+              <input
+                type="text"
+                value={form.imageAlt}
+                onChange={(e) => handleChange("imageAlt", e.target.value)}
+                className="w-full border border-gray-300 px-3 py-2 text-sm text-primary focus:outline-none focus:border-primary"
+              />
+            </div>
           </div>
-          <div>
-            <label className="block text-xs font-bold text-primary uppercase tracking-wide mb-1">
-              Card image alt
-            </label>
-            <input
-              type="text"
-              value={form.imageAlt}
-              onChange={(e) => handleChange("imageAlt", e.target.value)}
-              className="w-full border border-gray-300 px-3 py-2 text-sm text-primary focus:outline-none focus:border-primary"
-            />
-          </div>
-          <div>
-            <label className="block text-xs font-bold text-primary uppercase tracking-wide mb-1">
-              Hero image path
-            </label>
-            <input
-              type="text"
+          <div className="space-y-4">
+            <ImageUploadField
+              label="Hero image"
               value={form.heroImage}
-              onChange={(e) => handleChange("heroImage", e.target.value)}
-              placeholder="/assets/photos/servizio-hero-1.jpg"
-              className="w-full border border-gray-300 px-3 py-2 text-sm text-primary focus:outline-none focus:border-primary font-mono"
+              onChange={(url) => handleChange("heroImage", url)}
             />
-          </div>
-          <div>
-            <label className="block text-xs font-bold text-primary uppercase tracking-wide mb-1">
-              Hero image alt
-            </label>
-            <input
-              type="text"
-              value={form.heroImageAlt}
-              onChange={(e) => handleChange("heroImageAlt", e.target.value)}
-              className="w-full border border-gray-300 px-3 py-2 text-sm text-primary focus:outline-none focus:border-primary"
-            />
+            <div>
+              <label className="block text-xs font-bold text-primary uppercase tracking-wide mb-1">
+                Hero image alt
+              </label>
+              <input
+                type="text"
+                value={form.heroImageAlt}
+                onChange={(e) => handleChange("heroImageAlt", e.target.value)}
+                className="w-full border border-gray-300 px-3 py-2 text-sm text-primary focus:outline-none focus:border-primary"
+              />
+            </div>
           </div>
         </div>
       </fieldset>

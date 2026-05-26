@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import ImageUploadField from "@/app/admin/_components/ImageUploadField";
 
 interface SeoData {
   metaTitle?: string;
@@ -185,15 +186,10 @@ export default function SeoForm({ pageKey, pageLabel, initialSeo }: Props) {
             />
           </div>
           <div>
-            <label className="block text-xs font-bold text-primary uppercase tracking-wide mb-1">
-              OG Image path
-            </label>
-            <input
-              type="text"
-              value={form.ogImage}
-              onChange={(e) => handleChange("ogImage", e.target.value)}
-              placeholder="/assets/photos/og-image.jpg"
-              className="w-full border border-gray-300 px-3 py-2 text-sm text-primary focus:outline-none focus:border-primary font-mono"
+            <ImageUploadField
+              label="OG Image"
+              value={form.ogImage ?? ""}
+              onChange={(url) => handleChange("ogImage", url)}
             />
           </div>
         </div>
