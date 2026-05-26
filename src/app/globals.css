@@ -135,9 +135,26 @@
     transition: background 0.2s, color 0.2s;
   }
 
-  .btn-outline:hover {
-    background: var(--color-primary);
-    color: var(--color-surface-50);
+  .btn-outline::after,
+  .btn-accent::after {
+    font-family: 'Material Symbols Outlined';
+    font-feature-settings: 'liga';
+    font-size: 1.125rem;
+    line-height: 1;
+    content: '';
+    max-width: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin-left: 0;
+    transition: max-width 0.2s ease, opacity 0.2s ease, margin-left 0.2s ease;
+  }
+
+  .btn-outline:hover::after,
+  .btn-accent:hover::after {
+    content: 'arrow_outward';
+    max-width: 1.5rem;
+    opacity: 1;
+    margin-left: 0.5rem;
   }
 
   .btn-accent {
@@ -162,10 +179,6 @@
     transition: background 0.2s;
   }
 
-  .btn-accent:hover {
-    background: var(--color-accent-dark);
-  }
-
   .btn-outline-white {
     display: inline-flex;
     align-items: center;
@@ -188,7 +201,23 @@
     transition: background 0.2s;
   }
 
-  .btn-outline-white:hover {
-    background: var(--color-accent);
+  .btn-outline-white::after {
+    font-family: 'Material Symbols Outlined';
+    font-feature-settings: 'liga';
+    font-size: 1.125rem;
+    line-height: 1;
+    content: '';
+    max-width: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin-left: 0;
+    transition: max-width 0.2s ease, opacity 0.2s ease, margin-left 0.2s ease;
+  }
+
+  .btn-outline-white:hover::after {
+    content: 'call';
+    max-width: 1.5rem;
+    opacity: 1;
+    margin-left: 0.5rem;
   }
 }
