@@ -66,8 +66,8 @@ function CertCard({
 
       {/* Testo descrittivo */}
       <div className="px-6 pt-4 pb-2 space-y-3 flex-1">
-        <p className="text-[14px] text-primary/80 leading-relaxed">{text}</p>
-        <p className="text-[14px] text-primary/80 leading-relaxed">{body}</p>
+        <p className="text-[14px] text-primary-950 leading-relaxed">{text}</p>
+        <p className="text-[14px] text-primary-950 leading-relaxed">{body}</p>
       </div>
 
       {/* Pulsanti */}
@@ -167,7 +167,7 @@ export default async function CertificazioniPage() {
               {t("hero.title")}{" "}
               <span className="text-primary">{t("hero.titleAccent")}</span>
             </h1>
-            <p className="mt-3 text-base text-primary/80 max-w-3xl">
+            <p className="mt-3 text-base text-primary-950 max-w-3xl">
               {t("hero.subtitle")}
             </p>
           </div>
@@ -202,7 +202,7 @@ export default async function CertificazioniPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-2">
               {t("attestati.title")}
             </h2>
-            <p className="text-base text-primary/80 max-w-3xl mb-10">
+            <p className="text-base text-primary-950 max-w-3xl mb-10">
               {t("attestati.subtitle")}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

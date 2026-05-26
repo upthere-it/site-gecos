@@ -52,7 +52,7 @@ export default async function ContattiPage() {
             <h1 className="text-3xl md:text-[40px] font-bold text-primary leading-tight mt-2">
               {t("title")}
             </h1>
-            <p className="mt-3 text-base md:text-[17px] text-primary/80 max-w-3xl">
+            <p className="mt-3 text-base md:text-[17px] text-primary-950 max-w-3xl">
               {t("subtitle")}
             </p>
 
@@ -63,7 +63,7 @@ export default async function ContattiPage() {
                   <p className="font-bold text-[15px] text-primary">
                     {t("sedeOperativa")}
                   </p>
-                  <p className="text-[14px] text-primary/80 mt-1 leading-relaxed">
+                  <p className="text-[14px] text-primary-950 mt-1 leading-relaxed">
                     Via Monte d&apos;Oro n. 30 - Cap 00071
                     <br />
                     Pomezia (RM)
@@ -73,7 +73,7 @@ export default async function ContattiPage() {
                   <p className="font-bold text-[15px] text-primary">
                     {t("sedeLegale")}
                   </p>
-                  <p className="text-[14px] text-primary/80 mt-1 leading-relaxed">
+                  <p className="text-[14px] text-primary-950 mt-1 leading-relaxed">
                     Via Anchise n. 9 - Cap 00071
                     <br />
                     Pomezia (RM)

@@ -25,7 +25,7 @@ export default function WhistleblowingPage() {
           D.Lgs. 24/2023 – Protezione dei segnalanti
         </p>
 
-        <div className="space-y-6 text-primary/80 text-sm md:text-base leading-relaxed">
+        <div className="space-y-6 text-primary-950 text-sm md:text-base leading-relaxed">
 
           <section>
             <h2 className="text-xl font-bold text-primary mb-3">Cos&apos;è il Whistleblowing</h2>

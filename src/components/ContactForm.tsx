@@ -128,7 +128,7 @@ export default function ContactForm() {
           }
           className="mt-0.5 h-4 w-4 flex-shrink-0 accent-primary border border-gray-300"
         />
-        <span className="text-[12px] md:text-[13px] text-primary/80 leading-relaxed">
+        <span className="text-[12px] md:text-[13px] text-primary-950 leading-relaxed">
           {t("privacy")}
         </span>
       </label>

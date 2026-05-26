@@ -89,7 +89,7 @@ export default async function ChiSiamoPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-primary">
               {t("sezione1.title")}
             </h2>
-            <p className="mt-3 text-base text-primary/80 max-w-3xl">
+            <p className="mt-3 text-base text-primary-950 max-w-3xl">
               {t("sezione1.subtitle")}
             </p>
 
@@ -98,7 +98,7 @@ export default async function ChiSiamoPage() {
               <h3 className="text-lg md:text-xl font-bold text-primary">
                 {t("sezione1.bodyTitle")}
               </h3>
-              <p className="mt-2 text-sm md:text-base text-primary/80 max-w-3xl">
+              <p className="mt-2 text-sm md:text-base text-primary-950 max-w-3xl">
                 {t("sezione1.bodyText")}
               </p>
             </div>
@@ -122,13 +122,13 @@ export default async function ChiSiamoPage() {
               <h3 className="text-lg md:text-xl font-bold text-primary">
                 {t("sezione2.title")}
               </h3>
-              <p className="mt-2 text-sm md:text-base text-primary/80 max-w-3xl">
+              <p className="mt-2 text-sm md:text-base text-primary-950 max-w-3xl">
                 {t("sezione2.bodyText")}
               </p>
             </div>
 
             {/* Card + numeri: 3 colonne su sfondo accent-light */}
-            <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-px bg-primary/10">
+            <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-[10px]">
               {cards.map((card) => (
                 <div
                   key={card.number}
@@ -142,7 +142,7 @@ export default async function ChiSiamoPage() {
                       {card.title}
                     </span>
                   </div>
-                  <p className="text-[14px] text-primary/80 leading-relaxed">
+                  <p className="text-[14px] text-primary-950 leading-relaxed">
                     {card.text}
                   </p>
                 </div>
@@ -154,7 +154,7 @@ export default async function ChiSiamoPage() {
               <h2 className="text-3xl md:text-4xl font-bold text-primary mb-2">
                 {t("dropdownTitle")}
               </h2>
-              <p className="text-base text-primary/80 max-w-3xl mb-8">
+              <p className="text-base text-primary-950 max-w-3xl mb-8">
                 {t("dropdownSubtitle")}
               </p>
               <FaqAccordion items={dropdownItems} />

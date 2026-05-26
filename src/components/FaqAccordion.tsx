@@ -73,12 +73,12 @@ export default function FaqAccordion({ items, limit }: FaqAccordionProps) {
                 >
                   {hasHtml ? (
                     <div
-                      className="px-6 pb-6 text-[15px] md:text-base text-primary/80 leading-relaxed prose prose-sm max-w-none"
+                      className="px-6 pb-6 text-[15px] md:text-base text-primary-950 leading-relaxed prose prose-sm max-w-none"
                       /* HTML sanitizzato in faq-datasource.ts prima di arrivare qui */
                       dangerouslySetInnerHTML={{ __html: item.content! }}
                     />
                   ) : (
-                    <p className="px-6 pb-6 text-[15px] md:text-base text-primary/80 leading-relaxed">
+                    <p className="px-6 pb-6 text-[15px] md:text-base text-primary-950 leading-relaxed">
                       {item.answer}
                     </p>
                   )}

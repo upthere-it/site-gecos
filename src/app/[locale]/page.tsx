@@ -109,7 +109,7 @@ export default async function HomePage() {
             <h1 className="container-boxed text-[34px] md:text-5xl lg:text-[60px] font-bold text-primary leading-[1.05]  mx-auto tracking-tight">
               {t("hero.title")}
             </h1>
-            <p className="mt-4 md:mt-5 text-base md:text-lg text-primary/80 max-w-2xl mx-auto leading-relaxed">
+            <p className="mt-4 md:mt-5 text-base md:text-lg text-primary-950 max-w-2xl mx-auto leading-relaxed">
               {t("hero.subtitle")}
             </p>
             <div className="mt-6 md:mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4">
@@ -163,7 +163,7 @@ export default async function HomePage() {
               <h3 className="text-lg md:text-xl font-bold text-primary">
                 {t("chiSiamo.sectionTitle")}
               </h3>
-              <p className="mt-2 text-sm md:text-base text-primary/80 max-w-3xl">
+              <p className="mt-2 text-sm md:text-base text-primary-950 max-w-3xl">
                 {t("chiSiamo.sectionText")}
               </p>
             </div>
@@ -179,7 +179,7 @@ export default async function HomePage() {
                       {card.title}
                     </span>
                   </div>
-                  <p className="text-sm text-primary/80 leading-relaxed">{card.text}</p>
+                  <p className="text-sm text-primary-950 leading-relaxed">{card.text}</p>
                 </div>
               ))}
             </div>
