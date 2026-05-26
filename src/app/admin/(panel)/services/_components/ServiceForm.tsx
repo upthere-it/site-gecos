@@ -63,6 +63,13 @@ export default function ServiceForm({ initialData, mode }: Props) {
     e.preventDefault();
     setError("");
     setSuccess(false);
+
+    // Validazione ID: solo lowercase, numeri e trattini
+    if (mode === "create" && !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(form.id)) {
+      setError("ID non valido: usa solo lettere minuscole, numeri e trattini (es. mio-servizio).");
+      return;
+    }
+
     setLoading(true);
 
     try {
@@ -110,15 +117,19 @@ export default function ServiceForm({ initialData, mode }: Props) {
             <input
               type="text"
               value={form.id}
-              onChange={(e) => handleChange("id", e.target.value)}
+              onChange={(e) => handleChange("id", e.target.value.toLowerCase().replace(/[^a-z0-9-]/g, "-"))}
               required
               disabled={mode === "edit"}
-              placeholder="manutenzione-verde"
+              placeholder="mio-servizio"
+              pattern="[a-z0-9]+(?:-[a-z0-9]+)*"
+              title="Solo lettere minuscole, numeri e trattini"
               className="w-full border border-gray-300 px-3 py-2 text-sm text-primary focus:outline-none focus:border-primary disabled:bg-gray-100 disabled:text-gray-400 font-mono"
             />
-            {mode === "edit" && (
-              <p className="text-xs text-gray-400 mt-0.5">L&apos;ID non è modificabile</p>
-            )}
+            <p className="text-xs text-gray-400 mt-0.5">
+              {mode === "edit"
+                ? "L'ID non è modificabile"
+                : "Solo lettere minuscole, numeri e trattini"}
+            </p>
           </div>
           <div>
             <label className="block text-xs font-bold text-primary uppercase tracking-wide mb-1">

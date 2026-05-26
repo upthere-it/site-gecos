@@ -7,12 +7,6 @@ const inter = Inter({
   display: "swap",
 });
 
-/**
- * Root layout per tutta l'area /admin (include login).
- * Fornisce solo html/body + font.
- * La sidebar è nel layout (panel)/layout.tsx che avvolge solo le pagine protette.
- * L'autenticazione è gestita dal middleware (src/middleware.ts).
- */
 export default function AdminRootLayout({
   children,
 }: {
@@ -22,6 +16,10 @@ export default function AdminRootLayout({
     <html lang="it" className={inter.variable}>
       <head>
         <title>Admin | GE.CO.S.</title>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+          rel="stylesheet"
+        />
       </head>
       <body className="bg-gray-50 text-primary">
         {children}

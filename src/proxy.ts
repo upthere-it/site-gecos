@@ -4,12 +4,11 @@ import { routing } from "./i18n/routing";
 
 const intlMiddleware = createIntlMiddleware(routing);
 
-export default function middleware(req: NextRequest) {
+export function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
   if (pathname.startsWith("/admin")) {
-    const isPublicAdminRoute =
-      pathname === "/admin/login" || pathname === "/api/admin/auth";
+    const isPublicAdminRoute = pathname === "/admin/login";
 
     if (!isPublicAdminRoute) {
       const adminSecret = process.env.ADMIN_SECRET;
