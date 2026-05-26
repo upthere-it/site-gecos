@@ -113,16 +113,10 @@ export default async function HomePage() {
               {t("hero.subtitle")}
             </p>
             <div className="mt-6 md:mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4">
-              <Link
-                href="/it/servizi"
-                className="border border-primary text-primary px-7 py-3 text-xs md:text-sm font-bold uppercase tracking-[0.15em] hover:bg-primary hover:text-white transition-colors"
-              >
+              <Link href="/it/servizi" className="btn-outline">
                 {t("hero.cta")}
               </Link>
-              <Link
-                href="tel:069107142"
-                className="bg-accent text-primary px-7 py-3 text-xs md:text-sm font-bold uppercase tracking-[0.15em] hover:bg-accent/90 transition-colors lg:hidden"
-              >
+              <Link href="tel:069107142" className="btn-accent lg:hidden">
                 {t("hero.ctaChiama")}
               </Link>
             </div>

@@ -76,7 +76,7 @@ function CertCard({
           href={previewUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="block text-center text-[13px] font-bold text-primary uppercase tracking-[0.1em] border border-primary py-3 px-4 hover:bg-primary hover:text-white transition-colors"
+          className="btn-outline w-full"
         >
           {ctaPreview}
         </Link>
@@ -84,7 +84,7 @@ function CertCard({
           href={pdfUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="block text-center text-[13px] font-bold text-accent uppercase tracking-[0.1em] border border-primary py-3 px-4 hover:bg-primary hover:text-white transition-colors"
+          className="btn-accent w-full"
         >
           {ctaPdf}
         </Link>
@@ -245,10 +245,7 @@ export default async function CertificazioniPage() {
               <FaqAccordion items={faqItems} />
             </div>
             <div className="mt-10 flex justify-center">
-              <Link
-                href="/faqs"
-                className="inline-block border border-primary text-primary text-[13px] font-bold uppercase tracking-[0.1em] py-3 px-8 hover:bg-primary hover:text-white transition-colors"
-              >
+              <Link href="/it/faqs" className="btn-outline">
                 {th("faqs.cta")}
               </Link>
             </div>

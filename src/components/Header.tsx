@@ -59,9 +59,13 @@ export default function Header() {
             </ul>
             <Link
               href="tel:069107142"
-              className="inline-flex items-center justify-center bg-accent hover:bg-accent-dark text-primary font-bold text-sm tracking-[0.04em] h-[52px] w-[111px] transition-colors"
+              className="group btn-accent no-btn-icon min-w-[165px] h-[52px]"
             >
-              {t("chiama")}
+              <span className="group-hover:hidden">{t("chiama")}</span>
+              <span className="hidden group-hover:inline-flex items-center gap-1.5">
+                <span className="material-symbols-outlined text-base leading-none">call</span>
+                <span className="text-xs font-bold tracking-[0.04em]">06 910 7142</span>
+              </span>
             </Link>
           </nav>
 

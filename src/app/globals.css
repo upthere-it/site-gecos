@@ -201,6 +201,11 @@
     transition: background 0.2s;
   }
 
+  .no-btn-icon::after {
+    content: none !important;
+    display: none !important;
+  }
+
   .btn-outline-white::after {
     font-family: 'Material Symbols Outlined';
     font-feature-settings: 'liga';
