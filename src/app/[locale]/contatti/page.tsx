@@ -158,26 +158,26 @@ export default async function ContattiPage() {
             </div>
 
             {/* Mappa */}
-            <div className="mt-12 relative w-full aspect-[1152/381] overflow-hidden bg-gray-100">
-              <Image
-                src="/assets/photos/map-pomezia.jpg"
-                alt={t("mapTitle")}
-                fill
-                className="object-cover"
-                sizes="(max-width: 1280px) 100vw, 1152px"
-              />
-            </div>
+              <div className="mt-12 relative w-full aspect-[1152/381] overflow-hidden bg-gray-100">
+
+
+                  <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2889.4230017803047!2d12.46998280036772!3d41.67307624823823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1325931d4b48db3b%3A0x1978f9a052cb78d1!2sVia%20Monte%20D&#39;Oro%2C%2030%2C%2000071%20Pomezia%20RM!5e1!3m2!1sit!2sit!4v1779800349339!5m2!1sit!2sit"
+                      className={"w-full h-full"}
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"></iframe>
+              </div>
           </div>
         </section>
 
-        {/* ── Partner ── */}
-        <Partner
-          occhiello={tp("occhiello")}
-          title={tp("title")}
-          subtitle={tp("subtitle")}
-        />
+          {/* ── Partner ── */}
+          <Partner
+              occhiello={tp("occhiello")}
+              title={tp("title")}
+              subtitle={tp("subtitle")}
+          />
       </main>
-      <Footer />
+        <Footer/>
     </>
   );
 }
