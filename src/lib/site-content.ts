@@ -56,6 +56,7 @@ export const PAGE_KEYS: PageKey[] = [
   "certificazioni",
   "faqs",
   "contatti",
+  "whistleblowing",
   "privacy-policy",
   "cookie-policy",
   "conferma",

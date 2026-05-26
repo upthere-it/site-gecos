@@ -10,6 +10,7 @@ const PAGE_LABELS: Record<string, string> = {
   certificazioni: "Certificazioni",
   faqs: "FAQs",
   contatti: "Contatti",
+  whistleblowing: "Whistleblowing",
   "privacy-policy": "Privacy Policy",
   "cookie-policy": "Cookie Policy",
   conferma: "Conferma",
