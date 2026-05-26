@@ -14,7 +14,7 @@ export default function BoxAiuto({
   phone = "069107142",
 }: BoxAiutoProps) {
   return (
-    <section className="bg-accent py-16 px-4">
+    <section className="bg-accent-dark py-16 px-4">
       <div className="flex flex-col items-center text-center gap-5 max-w-3xl mx-auto">
         <h2 className="text-3xl md:text-[36px] font-bold text-white leading-tight">
           {title}

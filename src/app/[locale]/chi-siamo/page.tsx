@@ -132,7 +132,7 @@ export default async function ChiSiamoPage() {
               {cards.map((card) => (
                 <div
                   key={card.number}
-                  className="bg-accent-light px-8 py-8"
+                  className="bg-secondary-50 px-8 py-8"
                 >
                   <div className="flex items-baseline gap-3 mb-4">
                     <span className="text-[56px] font-bold text-primary leading-none">

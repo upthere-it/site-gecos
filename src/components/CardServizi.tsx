@@ -65,7 +65,7 @@ export default function CardServizi({
           className="object-cover"
           sizes="(max-width: 768px) 100vw, 571px"
         />
-        <div className="absolute inset-0 bg-primary/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
         <div className="absolute inset-0 flex flex-col justify-end p-[30px]">
           <h3 className="text-[28px] md:text-[32px] font-bold text-white leading-[1.15]">
             {renderTitle()}
@@ -77,18 +77,18 @@ export default function CardServizi({
       </div>
 
       {/* Detail panel */}
-      <div className="bg-gray-50 p-[30px] flex-1 flex flex-col">
+      <div className="bg-[#f9f9f9] p-[30px] flex-1 flex flex-col">
         <div className="space-y-6 flex-1">
           <div>
             <p className="font-bold text-primary text-[15px]">{detail1Title}</p>
-            <p className="text-[14px] text-primary/80 mt-2 leading-relaxed">
+            <p className="text-[14px] text-primary-950 mt-2 leading-relaxed">
               {detail1Text}
             </p>
           </div>
           {detail2Title && detail2Text && (
             <div>
               <p className="font-bold text-primary text-[15px]">{detail2Title}</p>
-              <p className="text-[14px] text-primary/80 mt-2 leading-relaxed">
+              <p className="text-[14px] text-primary-950 mt-2 leading-relaxed">
                 {detail2Text}
               </p>
             </div>

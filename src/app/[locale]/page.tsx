@@ -170,7 +170,7 @@ export default async function HomePage() {
 
             <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
               {numberedCards.map((card) => (
-                <div key={card.number} className="bg-accent-light/30 p-6 md:p-7">
+                <div key={card.number} className="bg-secondary-50 p-6 md:p-7">
                   <div className="flex items-baseline gap-3 mb-3">
                     <span className="text-3xl md:text-4xl font-bold text-primary leading-none">
                       {card.number}
@@ -224,7 +224,7 @@ export default async function HomePage() {
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 395px"
                   />
-                  <div className="absolute inset-0 bg-primary/70" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-gray-600/0" />
                   <div className="absolute inset-0 flex flex-col justify-end p-7">
                     <span className="text-accent text-[11px] font-bold uppercase tracking-[0.15em]">
                       {label}
