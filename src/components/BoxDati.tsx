@@ -10,33 +10,29 @@ interface BoxDatiProps {
 
 export default function BoxDati({ stats }: BoxDatiProps) {
   const bgMap = {
-    dark: "bg-primary",
+    dark: "bg-primary-950",
     light: "bg-accent-light",
   };
   const valColorMap = {
     dark: "text-accent",
-    light: "text-primary",
+    light: "text-primary-950",
   };
   const labelColorMap = {
     dark: "text-accent",
-    light: "text-primary",
+    light: "text-primary-950",
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-[10px]">
       {stats.map((stat, i) => {
         const variant: "dark" | "light" = i === 1 ? "light" : "dark";
         return (
           <div
-              style={{
-                  border: "4px solid transparent",
-                  borderImageSource: "url(./Vector-light.svg)",
-                  borderImageSlice: "7 fill",
-                  borderImageWidth: "12px",
-                  borderImageRepeat: "stretch",
-              }}
             key={i}
-            className={`${bgMap[variant]} flex flex-col items-center justify-center py-10 px-6 min-h-[130px]`}
+            style={{
+              border: "3px solid var(--color-secondary-400)",
+            }}
+            className={`${bgMap[variant]} flex flex-col items-center justify-center py-10 px-6 min-h-[126px]`}
           >
             <span
               className={`text-5xl md:text-[56px] font-bold leading-none ${valColorMap[variant]}`}

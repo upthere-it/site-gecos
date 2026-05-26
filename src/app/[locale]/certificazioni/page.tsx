@@ -42,7 +42,7 @@ function CertCard({
   ctaPdf,
 }: CertCardProps) {
   return (
-    <div className="flex flex-col border border-gray-200">
+    <div className="flex flex-col border border-[#d1d1d1]">
       {/* Immagine certificato */}
       <div className="relative overflow-hidden aspect-[364/400] bg-gray-100">
         <Image
@@ -66,8 +66,8 @@ function CertCard({
 
       {/* Testo descrittivo */}
       <div className="px-6 pt-4 pb-2 space-y-3 flex-1">
-        <p className="text-[14px] text-primary/80 leading-relaxed">{text}</p>
-        <p className="text-[14px] text-primary/80 leading-relaxed">{body}</p>
+        <p className="text-[14px] text-primary-950 leading-relaxed">{text}</p>
+        <p className="text-[14px] text-primary-950 leading-relaxed">{body}</p>
       </div>
 
       {/* Pulsanti */}
@@ -76,7 +76,7 @@ function CertCard({
           href={previewUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="block text-center text-[13px] font-bold text-primary uppercase tracking-[0.1em] border border-primary py-3 px-4 hover:bg-primary hover:text-white transition-colors"
+          className="btn-outline w-full"
         >
           {ctaPreview}
         </Link>
@@ -84,7 +84,7 @@ function CertCard({
           href={pdfUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="block text-center text-[13px] font-bold text-accent uppercase tracking-[0.1em] border border-primary py-3 px-4 hover:bg-primary hover:text-white transition-colors"
+          className="btn-accent w-full"
         >
           {ctaPdf}
         </Link>
@@ -167,7 +167,7 @@ export default async function CertificazioniPage() {
               {t("hero.title")}{" "}
               <span className="text-primary">{t("hero.titleAccent")}</span>
             </h1>
-            <p className="mt-3 text-base text-primary/80 max-w-3xl">
+            <p className="mt-3 text-base text-primary-950 max-w-3xl">
               {t("hero.subtitle")}
             </p>
           </div>
@@ -176,7 +176,7 @@ export default async function CertificazioniPage() {
         {/* ── Certificazioni ── */}
         <section className="pb-20 bg-white">
           <div className="container-boxed">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-[10px]">
               {certs.map(({ n, label, title, text, body, pdfUrl, previewUrl }) => (
                 <CertCard
                   key={n}
@@ -202,10 +202,10 @@ export default async function CertificazioniPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-2">
               {t("attestati.title")}
             </h2>
-            <p className="text-base text-primary/80 max-w-3xl mb-10">
+            <p className="text-base text-primary-950 max-w-3xl mb-10">
               {t("attestati.subtitle")}
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-[10px]">
               {attestati.map(({ n, label, title, text, body }) => (
                 <CertCard
                   key={n}
@@ -245,10 +245,7 @@ export default async function CertificazioniPage() {
               <FaqAccordion items={faqItems} />
             </div>
             <div className="mt-10 flex justify-center">
-              <Link
-                href="/faqs"
-                className="inline-block border border-primary text-primary text-[13px] font-bold uppercase tracking-[0.1em] py-3 px-8 hover:bg-primary hover:text-white transition-colors"
-              >
+              <Link href="/it/faqs" className="btn-outline">
                 {th("faqs.cta")}
               </Link>
             </div>

@@ -71,7 +71,7 @@ export default async function ServiziPage() {
               <h1 className="text-3xl md:text-[40px] font-bold text-primary leading-tight">
                 {t("title")}
               </h1>
-              <p className="mt-3 text-base text-primary/80 max-w-3xl">
+              <p className="mt-3 text-base text-primary-950 max-w-3xl">
                 {t("subtitle")}
               </p>
             </div>

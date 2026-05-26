@@ -109,20 +109,14 @@ export default async function HomePage() {
             <h1 className="container-boxed text-[34px] md:text-5xl lg:text-[60px] font-bold text-primary leading-[1.05]  mx-auto tracking-tight">
               {t("hero.title")}
             </h1>
-            <p className="mt-4 md:mt-5 text-base md:text-lg text-primary/80 max-w-2xl mx-auto leading-relaxed">
+            <p className="mt-4 md:mt-5 text-base md:text-lg text-primary-950 max-w-2xl mx-auto leading-relaxed">
               {t("hero.subtitle")}
             </p>
             <div className="mt-6 md:mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4">
-              <Link
-                href="/it/servizi"
-                className="border border-primary text-primary px-7 py-3 text-xs md:text-sm font-bold uppercase tracking-[0.15em] hover:bg-primary hover:text-white transition-colors"
-              >
+              <Link href="/it/servizi" className="btn-outline">
                 {t("hero.cta")}
               </Link>
-              <Link
-                href="tel:069107142"
-                className="bg-accent text-primary px-7 py-3 text-xs md:text-sm font-bold uppercase tracking-[0.15em] hover:bg-accent/90 transition-colors lg:hidden"
-              >
+              <Link href="tel:069107142" className="btn-accent lg:hidden">
                 {t("hero.ctaChiama")}
               </Link>
             </div>
@@ -169,14 +163,14 @@ export default async function HomePage() {
               <h3 className="text-lg md:text-xl font-bold text-primary">
                 {t("chiSiamo.sectionTitle")}
               </h3>
-              <p className="mt-2 text-sm md:text-base text-primary/80 max-w-3xl">
+              <p className="mt-2 text-sm md:text-base text-primary-950 max-w-3xl">
                 {t("chiSiamo.sectionText")}
               </p>
             </div>
 
             <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
               {numberedCards.map((card) => (
-                <div key={card.number} className="bg-accent-light/30 p-6 md:p-7">
+                <div key={card.number} className="bg-secondary-50 p-6 md:p-7">
                   <div className="flex items-baseline gap-3 mb-3">
                     <span className="text-3xl md:text-4xl font-bold text-primary leading-none">
                       {card.number}
@@ -185,7 +179,7 @@ export default async function HomePage() {
                       {card.title}
                     </span>
                   </div>
-                  <p className="text-sm text-primary/80 leading-relaxed">{card.text}</p>
+                  <p className="text-sm text-primary-950 leading-relaxed">{card.text}</p>
                 </div>
               ))}
             </div>
@@ -230,7 +224,7 @@ export default async function HomePage() {
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 395px"
                   />
-                  <div className="absolute inset-0 bg-primary/70" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-gray-600/0" />
                   <div className="absolute inset-0 flex flex-col justify-end p-7">
                     <span className="text-accent text-[11px] font-bold uppercase tracking-[0.15em]">
                       {label}

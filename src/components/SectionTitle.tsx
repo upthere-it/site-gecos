@@ -24,7 +24,7 @@ export default function SectionTitle({
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-4 text-base md:text-lg text-primary/80 leading-relaxed">
+        <p className="mt-4 text-base md:text-lg text-primary-950 leading-relaxed">
           {subtitle}
         </p>
       )}

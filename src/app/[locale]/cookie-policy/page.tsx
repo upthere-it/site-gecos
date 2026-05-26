@@ -18,7 +18,7 @@ export default function CookiePolicyPage() {
           Cookie Policy
         </h1>
 
-        <div className="prose prose-green max-w-none space-y-6 text-primary/80 text-sm md:text-base leading-relaxed">
+        <div className="prose prose-green max-w-none space-y-6 text-primary-950 text-sm md:text-base leading-relaxed">
           <p className="font-semibold">Consenso all&apos;utilizzo di cookies.</p>
 
           <p>

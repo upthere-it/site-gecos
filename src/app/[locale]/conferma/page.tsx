@@ -26,7 +26,7 @@ export default async function ConfermaPage() {
               <p className="text-[17px] font-bold text-primary">
                 {t("text1")}
               </p>
-              <p className="text-[15px] md:text-base text-primary/80 leading-relaxed max-w-2xl">
+              <p className="text-[15px] md:text-base text-primary-950 leading-relaxed max-w-2xl">
                 {t("text2")}
               </p>
             </div>

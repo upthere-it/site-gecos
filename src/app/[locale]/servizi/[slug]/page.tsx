@@ -87,7 +87,7 @@ export default async function ServizioPage({
             className="object-cover"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-primary/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
           <div className="absolute inset-0 flex flex-col justify-end pb-10 container-boxed">
             <Occhiello label={service.label} className="mb-4" />
             <h1 className="text-3xl md:text-[40px] font-bold text-white leading-tight">
@@ -106,13 +106,13 @@ export default async function ServizioPage({
               <p className="text-[15px] font-bold text-primary leading-relaxed mt-6">
                 {service.detail1Title}
               </p>
-              <p className="text-[14px] text-primary/80 leading-relaxed mt-2">
+              <p className="text-[14px] text-primary-950 leading-relaxed mt-2">
                 {service.detail1Text}
               </p>
               <p className="text-[15px] font-bold text-primary leading-relaxed mt-6">
                 {service.detail2Title}
               </p>
-              <p className="text-[14px] text-primary/80 leading-relaxed mt-2">
+              <p className="text-[14px] text-primary-950 leading-relaxed mt-2">
                 {service.detail2Text}
               </p>
             </div>
@@ -148,7 +148,7 @@ export default async function ServizioPage({
                         className="object-cover group-hover:scale-105 transition-transform duration-300"
                         sizes="(max-width: 768px) 100vw, 571px"
                       />
-                      <div className="absolute inset-0 bg-primary/60 group-hover:bg-primary/70 transition-colors" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent group-hover:from-black/90 transition-all" />
                       <div className="absolute inset-0 flex flex-col justify-end p-[30px]">
                         <span className="text-accent text-[11px] font-bold uppercase tracking-[0.15em]">
                           {altro.label}

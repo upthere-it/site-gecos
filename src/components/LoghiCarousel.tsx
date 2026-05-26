@@ -14,7 +14,7 @@ const DOUBLED = [...LOGOS, ...LOGOS, ...LOGOS, ...LOGOS];
 
 export default function LoghiCarousel() {
   return (
-    <section className="py-10 border-y border-gray-100 overflow-hidden">
+    <section className="bg-primary-950 py-11 overflow-hidden">
       <div className="relative flex h-[30px] items-center">
         <motion.div
           className="flex items-center gap-[80px] flex-shrink-0"
@@ -32,7 +32,7 @@ export default function LoghiCarousel() {
                 alt={logo.alt}
                 width={logo.w}
                 height={logo.h}
-                className="object-contain h-[30px] w-auto"
+                className="object-contain h-[30px] w-auto brightness-0 invert opacity-80"
               />
             </div>
           ))}

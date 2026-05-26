@@ -8,7 +8,7 @@ export default function Occhiello({ label, className = "" }: OcchielloProps) {
     <span
         style={{
             border: "4px solid transparent",
-            borderImageSource: "url(./Vector.svg)",
+            borderImageSource: "url('/assets/Vector-light.svg')",
             borderImageSlice: "12 fill",
             borderImageWidth: "12px",
             borderImageRepeat: "stretch",

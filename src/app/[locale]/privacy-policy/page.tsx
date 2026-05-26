@@ -22,7 +22,7 @@ export default function PrivacyPolicyPage() {
           Privacy Policy
         </h1>
 
-        <div className="space-y-6 text-primary/80 text-sm md:text-base leading-relaxed">
+        <div className="space-y-6 text-primary-950 text-sm md:text-base leading-relaxed">
           <h2 className="text-xl font-bold text-primary">
             Politica sulla riservatezza
           </h2>
