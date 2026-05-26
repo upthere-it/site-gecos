@@ -1,9 +1,10 @@
-import { getSiteContent, PAGE_KEYS } from "@/lib/site-content";
+import { PAGE_KEYS } from "@/lib/site-content";
+import { readSiteContent } from "@/lib/local-data";
 import SeoPageTabs from "./_components/SeoPageTabs";
 
 export const dynamic = "force-dynamic";
 
-const CONTENT_API_URL = process.env.CONTENT_API_URL ?? "http://localhost:9998";
+const CONTENT_API_URL = process.env.CONTENT_API_URL;
 
 const PAGE_LABELS: Record<string, string> = {
   home: "Home",
@@ -18,25 +19,42 @@ const PAGE_LABELS: Record<string, string> = {
   conferma: "Conferma",
 };
 
-async function getSeoFromBackend(): Promise<Record<string, Record<string, string>> | null> {
+async function getSeoData(): Promise<{
+  data: Record<string, Record<string, string>>;
+  fromBackend: boolean;
+}> {
+  // Prova backend se configurato
+  if (CONTENT_API_URL) {
+    try {
+      const res = await fetch(`${CONTENT_API_URL}/api/v1/seo`, { cache: "no-store" });
+      if (res.ok) {
+        return { data: await res.json(), fromBackend: true };
+      }
+    } catch {
+      // Cade al fallback locale
+    }
+  }
+  // Fallback locale (lettura dinamica, riflette le ultime modifiche)
   try {
-    const res = await fetch(`${CONTENT_API_URL}/api/v1/seo`, { cache: "no-store" });
-    if (!res.ok) return null;
-    return await res.json();
+    const content = await readSiteContent();
+    const pages = content.pages as Record<string, { seo: Record<string, string> }>;
+    const data: Record<string, Record<string, string>> = {};
+    for (const key of PAGE_KEYS) {
+      data[key] = pages[key]?.seo ?? {};
+    }
+    return { data, fromBackend: false };
   } catch {
-    return null;
+    return { data: {}, fromBackend: false };
   }
 }
 
 export default async function AdminSeoPage() {
-  const backendSeo = await getSeoFromBackend();
-  const localContent = getSiteContent();
-  const localPages = localContent.pages as Record<string, { seo: Record<string, string> }>;
+  const { data: seoData, fromBackend } = await getSeoData();
 
   const pagesData = PAGE_KEYS.map((key) => ({
     key,
     label: PAGE_LABELS[key] ?? key,
-    seo: backendSeo?.[key] ?? localPages[key]?.seo ?? {},
+    seo: seoData[key] ?? {},
   }));
 
   return (
@@ -46,9 +64,9 @@ export default async function AdminSeoPage() {
         <p className="text-sm text-gray-500 mt-1">
           Gestisci i meta tag SEO per ciascuna pagina del sito.
         </p>
-        {!backendSeo && (
+        {!fromBackend && CONTENT_API_URL && (
           <p className="text-xs text-warning mt-2 border border-warning/30 bg-warning/5 px-3 py-2 inline-block">
-            Backend non raggiungibile — dati da file locale (le modifiche non verranno salvate)
+            Backend non raggiungibile — dati da file locale
           </p>
         )}
       </div>

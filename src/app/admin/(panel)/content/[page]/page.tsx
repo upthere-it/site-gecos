@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ContentEditor from "../_components/ContentEditor";
+import { readLocalMessages } from "@/lib/local-data";
 
 export const dynamic = "force-dynamic";
 
-const CONTENT_API_URL = process.env.CONTENT_API_URL ?? "http://localhost:3001";
+const CONTENT_API_URL = process.env.CONTENT_API_URL;
 
 const PAGE_LABELS: Record<string, string> = {
   home: "Home",
@@ -19,15 +20,17 @@ const PAGE_LABELS: Record<string, string> = {
 };
 
 async function getMessages(): Promise<Record<string, unknown> | null> {
-  try {
-    const res = await fetch(`${CONTENT_API_URL}/api/v1/messages/it`, {
-      cache: "no-store",
-    });
-    if (!res.ok) return null;
-    return await res.json();
-  } catch {
-    return null;
+  // Prova backend se configurato
+  if (CONTENT_API_URL) {
+    try {
+      const res = await fetch(`${CONTENT_API_URL}/api/v1/messages/it`, { cache: "no-store" });
+      if (res.ok) return await res.json();
+    } catch {
+      // Cade al fallback locale
+    }
   }
+  // Fallback locale
+  return readLocalMessages();
 }
 
 export default async function AdminContentEditPage({
@@ -38,20 +41,10 @@ export default async function AdminContentEditPage({
   const { page } = await params;
   const messages = await getMessages();
 
-  if (!messages) {
-    return (
-      <div className="p-8">
-        <p className="text-sm text-error border border-error/30 bg-error/5 px-4 py-3 max-w-3xl">
-          Impossibile contattare il backend dei contenuti ({CONTENT_API_URL}).
-        </p>
-      </div>
-    );
-  }
+  if (!messages) notFound();
 
   const data = messages[page];
-  if (data === undefined) {
-    notFound();
-  }
+  if (data === undefined) notFound();
 
   const label = PAGE_LABELS[page] ?? page;
 
