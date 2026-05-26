@@ -1,0 +1,9 @@
+{
+  "tagline": "Gestione Costruzioni Servizi S.r.l.",
+  "sedeOperativa": { "indirizzo": "Via Monte d'Oro n. 30", "cap": "00071", "citta": "Pomezia (RM)" },
+  "sedeLegale":   { "indirizzo": "Via Anchise n. 9", "cap": "00071", "citta": "Pomezia (RM)" },
+  "telefoni": ["069107142", "0691603098"],
+  "emails":   ["info@gecospomezia.it", "ufficiotecnico@gecospomezia.it", "amministrazione@gecospomezia.it", "sgi@gecospomezia.it", "gecos@pec.it"],
+  "social":   { "instagram": "https://www.instagram.com", "facebook": "https://www.facebook.com" },
+  "copyright": "© 2026 GE.CO.S. S.r.l. Tutti i diritti riservati - C.F., P.IVA, C.C.I.A.A.: 07554601000 - Iscrizione REA: RM-1040431"
+}

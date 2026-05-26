@@ -4,8 +4,8 @@ import AdminDeleteButton from "./_components/AdminDeleteButton";
 
 export const dynamic = "force-dynamic";
 
-export default function AdminServicesPage() {
-  const services = getServices();
+export default async function AdminServicesPage() {
+  const services = await getServices();
 
   return (
     <div className="p-8">

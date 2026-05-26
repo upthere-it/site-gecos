@@ -1,16 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
 import { checkAdminAuth } from "@/lib/admin-auth";
 
-const CONTENT_PATH = path.join(process.cwd(), "src/data/site-content.json");
+const CONTENT_API_URL = process.env.CONTENT_API_URL ?? "http://localhost:3001";
 
-function readContent() {
-  return JSON.parse(fs.readFileSync(CONTENT_PATH, "utf-8"));
-}
-
-function writeContent(data: unknown) {
-  fs.writeFileSync(CONTENT_PATH, JSON.stringify(data, null, 2), "utf-8");
+function safeJson(text: string): unknown {
+  try {
+    return JSON.parse(text);
+  } catch {
+    return { raw: text };
+  }
 }
 
 export async function PUT(
@@ -21,25 +19,51 @@ export async function PUT(
     return NextResponse.json({ error: "Non autorizzato" }, { status: 401 });
   }
 
+  const adminSecret = process.env.ADMIN_SECRET;
+  if (!adminSecret) {
+    return NextResponse.json(
+      { error: "ADMIN_SECRET non configurato" },
+      { status: 500 }
+    );
+  }
+
   const { pageKey } = await params;
   const body = await req.json().catch(() => null);
-  if (!body) {
+  if (!body || typeof body !== "object") {
     return NextResponse.json({ error: "Body non valido" }, { status: 400 });
   }
 
-  const content = readContent();
-  const pages = content.pages as Record<string, { seo: Record<string, unknown> }>;
+  try {
+    const upstream = await fetch(
+      `${CONTENT_API_URL}/api/v1/seo/${encodeURIComponent(pageKey)}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${adminSecret}`,
+        },
+        body: JSON.stringify(body),
+      }
+    );
 
-  if (!pages[pageKey]) {
-    return NextResponse.json({ error: `Pagina "${pageKey}" non trovata` }, { status: 404 });
+    const text = await upstream.text();
+    const data = text ? safeJson(text) : null;
+
+    if (!upstream.ok) {
+      return NextResponse.json(
+        data ?? { error: `Backend ha risposto ${upstream.status}` },
+        { status: upstream.status }
+      );
+    }
+
+    return NextResponse.json(data ?? { ok: true });
+  } catch (err) {
+    return NextResponse.json(
+      {
+        error: "Errore di comunicazione con il backend dei contenuti",
+        detail: err instanceof Error ? err.message : String(err),
+      },
+      { status: 502 }
+    );
   }
-
-  pages[pageKey].seo = {
-    ...(pages[pageKey].seo ?? {}),
-    ...body,
-  };
-
-  writeContent(content);
-
-  return NextResponse.json(pages[pageKey].seo);
 }

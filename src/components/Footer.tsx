@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
+import { getCompanyData } from "@/lib/company";
 
 const NAV_LINKS = [
   { key: "home", href: "/it" },
@@ -11,19 +12,12 @@ const NAV_LINKS = [
   { key: "contatti", href: "/it/contatti" },
 ];
 
-const EMAILS = [
-  "info@gecospomezia.it",
-  "ufficiotecnico@gecospomezia.it",
-  "amministrazione@gecospomezia.it",
-  "sgi@gecospomezia.it",
-  "gecos@pec.it",
-];
-
-const PHONES = ["069107142", "0691603098"];
-
-export default function Footer() {
-  const t = useTranslations("footer");
-  const tn = useTranslations("nav");
+export default async function Footer() {
+  const t = await getTranslations("footer");
+  const tn = await getTranslations("nav");
+  const company = await getCompanyData();
+  const EMAILS = company.emails;
+  const PHONES = company.telefoni;
 
   return (
     <footer className="bg-white pt-12">
@@ -39,7 +33,7 @@ export default function Footer() {
           />
           <div className="w-px h-[42px] bg-gray-200" />
           <span className="text-base text-primary font-normal">
-            {t("tagline")}
+            {company.tagline}
           </span>
         </div>
 
@@ -52,9 +46,9 @@ export default function Footer() {
                 {t("sedeOperativa")}
               </p>
               <p className="text-sm text-primary leading-6">
-                Via Monte d&apos;Oro n. 30 - Cap 00071
+                {company.sedeOperativa.indirizzo} - Cap {company.sedeOperativa.cap}
                 <br />
-                Pomezia (RM)
+                {company.sedeOperativa.citta}
               </p>
             </div>
             <div className="mb-6">
@@ -62,9 +56,9 @@ export default function Footer() {
                 {t("sedeLegale")}
               </p>
               <p className="text-sm text-primary leading-6">
-                Via Anchise n. 9 - Cap 00071
+                {company.sedeLegale.indirizzo} - Cap {company.sedeLegale.cap}
                 <br />
-                Pomezia (RM)
+                {company.sedeLegale.citta}
               </p>
             </div>
             <div>
@@ -73,7 +67,7 @@ export default function Footer() {
               </p>
               <div className="flex gap-3">
                 <a
-                  href="https://www.instagram.com"
+                  href={company.social.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-6 h-6 rounded-full  flex items-center justify-center text-white"
@@ -84,7 +78,7 @@ export default function Footer() {
                     </svg>
                 </a>
                 <a
-                  href="https://www.facebook.com"
+                  href={company.social.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-6 h-6 rounded-full  flex items-center justify-center text-white"
@@ -179,7 +173,7 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-gray-100 py-5 mt-8">
         <div className="container-boxed flex flex-col md:flex-row items-start md:items-center justify-between gap-2">
-          <p className="text-xs text-primary">{t("copyright")}</p>
+          <p className="text-xs text-primary">{company.copyright}</p>
           <div className="flex items-center gap-3 text-xs">
             <Link
               href="/it/privacy-policy"

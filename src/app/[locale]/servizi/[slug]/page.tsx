@@ -10,8 +10,9 @@ import BoxAiuto from "@/components/BoxAiuto";
 import Partner from "@/components/Partner";
 import { getServices, getServiceBySlug } from "@/lib/site-content";
 
-export function generateStaticParams() {
-  return getServices().map((s) => ({ slug: s.slug }));
+export async function generateStaticParams() {
+  const services = await getServices();
+  return services.map((s) => ({ slug: s.slug }));
 }
 
 export async function generateMetadata({
@@ -21,7 +22,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   // Prova prima da site-content.json, fallback alle traduzioni
-  const service = getServiceBySlug(slug);
+  const service = await getServiceBySlug(slug);
   if (!service) return { title: "Servizio" };
 
   const title = service.title;
@@ -51,14 +52,14 @@ export default async function ServizioPage({
   const { slug } = await params;
 
   // Legge da site-content.json
-  const service = getServiceBySlug(slug);
+  const service = await getServiceBySlug(slug);
   if (!service) notFound();
 
   const th = await getTranslations("home");
   const tp = await getTranslations("home.partner");
   const t = await getTranslations("servizi");
 
-  const allServices = getServices();
+  const allServices = await getServices();
 
   const altriServizi = allServices
     .filter((s) => s.slug !== slug)

@@ -2,6 +2,8 @@ import Link from "next/link";
 
 const NAV_ITEMS = [
   { href: "/admin/services", label: "Servizi" },
+  { href: "/admin/content", label: "Contenuti Pagine" },
+  { href: "/admin/company", label: "Dati Aziendali" },
   { href: "/admin/seo", label: "SEO Pagine" },
 ];
 

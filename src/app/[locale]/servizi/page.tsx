@@ -40,7 +40,7 @@ export default async function ServiziPage() {
 
   // Legge i servizi da site-content.json (fonte di verità per i dati editabili).
   // Le traduzioni restano come fallback per i testi non coperti da site-content.json.
-  const contentServices = getServices();
+  const contentServices = await getServices();
 
   const serviziCards = contentServices.map((service, idx) => {
     const n = idx + 1;

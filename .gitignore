@@ -59,6 +59,10 @@ logs/
 .env.local
 .env.*.local
 
+# Backend (Express + better-sqlite3)
+backend/data/
+backend/node_modules/
+
 # Build/cache artifacts
 *.tgz
 .cache/
