@@ -60,7 +60,7 @@ export default function HeroCarousel({ slides, children, autoplayMs = 5000 }: Pr
                 key={i}
                 onClick={() => setCurrent(i)}
                 aria-label={`Slide ${i + 1}`}
-                className={`block h-[3px] w-7 transition-colors duration-300 ${
+                className={`hover:cursor-pointer block h-[3px] w-7 transition-colors duration-300 ${
                   i === current ? "bg-accent" : "bg-accent/40"
                 }`}
               />
